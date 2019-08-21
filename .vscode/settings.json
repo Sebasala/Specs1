@@ -1,0 +1,16 @@
+{
+  "emmet.syntaxProfiles": {
+    "xml": {
+      "attr_quotes": "single"
+    },
+    "javascript": {
+      "attr_quotes": "single"
+    },
+    "jsx": {
+      "attr_quotes": "single"
+    }
+  },
+  "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+  }
+}

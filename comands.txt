@@ -1,0 +1,7 @@
+json-server --watch db.json --port 3003
+
+pm2 start manage.py --name "django-api" --interpreter ../../../api-django-venv/bin/python -- runserver 0.0.0.0:8002
+
+https://tylermcginnis.com/react-router-protected-routes-authentication/
+https://stackoverflow.com/questions/47476186/when-user-is-not-logged-in-redirect-to-login-reactjs
+https://medium.com/@zoltankohalmy/react-redux-router-authentication-e8a77107db46

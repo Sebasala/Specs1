@@ -1,0 +1,864 @@
+/* RESET */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* TYPE */
+/* Fonts */
+body,
+input,
+select {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+a,
+button,
+a.button,
+input[type="submit"],
+.select-field label,
+.numeric-field label {
+  font-weight: 700;
+}
+
+.field-output h2 {
+  font-weight: 400;
+}
+
+.field-output p {
+  font-weight: 700;
+}
+
+/* Colors */
+h1,
+h2,
+h3,
+a,
+button,
+a.button,
+input[type="submit"],
+.select-field label,
+.numeric-field label,
+.pull-left p {
+  color: #070743;
+}
+
+label,
+td,
+th,
+td a,
+td button,
+.actions a {
+  color: #4D4D4D;
+}
+
+.row td,
+.pull-left h3,
+.row td button {
+  color: #FFFFFF;
+}
+
+.field-output h2,
+.field-output p {
+  color: #FFFFFF;
+}
+
+.actividades #seleccion td,
+.actividades #seleccion h3,
+.actividades #seleccion button,
+.actividades #seleccion a.button {
+  color: #FFFFFF;
+}
+
+.sidebar h1,
+.sidebar h2,
+.sidebar p {
+  color: #FFFFFF;
+}
+
+/* Vertica Rhythm */
+html {
+  font-size: 80%;
+}
+
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  font-size: 0.75rem;
+  line-height: 1.35rem;
+}
+
+body,
+input,
+a,
+td,
+select {
+  font-size: 0.9rem;
+  line-height: 1.35rem;
+}
+
+h3,
+.cuentas a,
+.select-field label,
+.numeric-field label {
+  font-size: 1.08rem;
+  line-height: 1.35rem;
+}
+
+h2 {
+  font-size: 1.296rem;
+  line-height: 1.35rem;
+}
+
+h1 {
+  font-size: 1.5552rem;
+  line-height: 2.7rem;
+}
+
+/* Transforms and decorations */
+h1 {
+  text-transform: uppercase;
+}
+
+h1 span {
+  text-transform: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* BACKGROUNDS */
+/* General */
+body {
+  background-image: url("/images/circulos.svg");
+  background-size: cover;
+  background-position: 300px 0px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    background-position: 500px 0px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-position: 625px 0px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body {
+    background-position: 750px 0px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  body {
+    background-position: 1250px 0px;
+  }
+}
+
+.actividades,
+.crear {
+  background: none;
+}
+
+/* Forms */
+input,
+button,
+a.button {
+  background-color: transparent;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #070743;
+}
+
+/* Actividades */
+.pull-left {
+  background-color: #179d99;
+}
+
+.actividades .row {
+  background-color: #4D4D4D;
+}
+
+#seleccion {
+  background-color: #070743;
+}
+
+/* Crear */
+/* LAYOUT */
+/* General */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+table {
+  width: calc(100% - 1.35rem);
+  margin: 0 0.675rem;
+}
+
+/* Content */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1 {
+  padding: 0 1.35rem;
+  margin-bottom: 1.35rem;
+  padding-top: 1.35rem;
+}
+
+h2,
+p {
+  padding: 0 1.35rem;
+}
+
+.logo {
+  max-height: 6.75rem;
+  margin: 0 auto 2.7rem;
+}
+
+/* Forms */
+button,
+a.button,
+input[type="submit"] {
+  font-size: 0.9rem;
+  line-height: 1.35rem;
+  display: inline-block;
+  padding: 0.675rem 1.35rem;
+  border: none;
+  outline: none;
+  border: 2px solid #070743;
+  border-radius: 2.7rem;
+  width: auto;
+  cursor: pointer;
+}
+
+select,
+input {
+  display: block;
+  width: 100%;
+}
+
+input,
+select {
+  display: block;
+  padding: 0.675rem 0;
+  margin: 0 auto 2.7rem;
+  border-color: #070743;
+  border-style: solid;
+  border-width: 0 0 2px;
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+}
+
+input[type="number"] {
+  text-align: center;
+}
+
+select {
+  padding: 0.675rem;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 1.35rem;
+}
+
+form {
+  width: 100%;
+}
+
+td button {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -1.35rem;
+  -webkit-transition: top 0.2s ease;
+  transition: top 0.2s ease;
+}
+
+.field {
+  position: relative;
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.field label {
+  position: absolute;
+  top: 0.675rem;
+  left: 0;
+}
+
+.select-field,
+.numeric-field {
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 2.7rem;
+}
+
+.select-field label,
+.numeric-field label {
+  text-align: center;
+}
+
+/* Containers */
+header {
+  margin-bottom: 2.7rem;
+}
+
+.container {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 625px;
+}
+
+@media screen and (min-width: 750px) {
+  .container {
+    height: 100vh;
+  }
+}
+
+.button-container {
+  height: 2.7rem;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 1.35rem;
+}
+
+.sidebar h1 {
+  margin-bottom: auto;
+}
+
+.sidebar .img-container {
+  padding: 0 1.35rem;
+}
+
+.sidebar button,
+.sidebar .button {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.sidebar .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.sidebar .actions .button-container {
+  margin-right: 1.35rem;
+}
+
+.sidebar--2 h1 {
+  margin-bottom: 1.35rem;
+}
+
+.sidebar--2 .img-container {
+  margin: 6.75rem 0 auto;
+}
+
+.sidebar--3 h1 {
+  margin-bottom: 1.35rem;
+}
+
+.sidebar--3 .row {
+  margin: 6.75rem 0 auto;
+}
+
+.fields-output {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+/* INTERNAL PAGES */
+/* Cuentas */
+.cuentas .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cuentas .container img {
+  margin: 0;
+}
+
+/* Actividades */
+.actividades {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.actividades #seleccion {
+  width: 100%;
+}
+
+.actividades .wrapper {
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.actividades .wrapper .track {
+  position: relative;
+  left: 0;
+  width: calc(100% + 21.6rem);
+}
+
+.actividades .wrapper .track .col--main {
+  width: calc(100% - 21.6rem);
+}
+
+.actividades .wrapper .track .pull-left {
+  width: 21.6rem;
+  overflow: auto;
+  min-height: 725px;
+}
+
+@media screen and (min-width: 750px) {
+  .actividades .wrapper .track .pull-left {
+    height: 100vh;
+  }
+}
+
+.actividades input {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+}
+
+.actividades td,
+.actividades th {
+  text-align: center;
+  padding: 0.675rem;
+}
+
+.actividades th.left,
+.actividades td.left {
+  text-align: left;
+}
+
+.actividades h2,
+.actividades h3 {
+  padding: 0.675rem 1.35rem 0;
+  margin-bottom: 0.675rem;
+}
+
+.actividades h2,
+.actividades h1 {
+  text-align: center;
+  padding: 0 1.35rem;
+  margin: 0 0 1.35rem;
+}
+
+.actividades .container {
+  display: block;
+  height: auto;
+  max-width: calc(643px + 2 * 1.35rem);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.actividades td.categoria {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.actividades td.categoria button {
+  margin-right: 1.35rem;
+}
+
+.actividades td.fecha {
+  width: 10.8rem;
+}
+
+.actividades td.download {
+  width: 5.4rem;
+}
+
+.actividades td.ver-mas {
+  width: 5.4rem;
+}
+
+.actividades header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  margin-bottom: 1.35rem;
+}
+
+.actividades table {
+  width: calc(100% - 1.35rem);
+  margin: 0 0.675rem;
+}
+
+.actividades .field {
+  margin: 0;
+}
+
+.actividades .logo {
+  margin-bottom: 0;
+}
+
+.actividades .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1.35rem;
+  padding: 1.35rem 1.35rem 0;
+}
+
+.actividades .checkbox {
+  width: 2.7rem;
+}
+
+.actividades #actividades-antiguas {
+  margin-bottom: 1.35rem;
+}
+
+.actividades #actividades-antiguas table {
+  margin-bottom: 0;
+}
+
+.actividades #actividades-antiguas .field {
+  margin-left: 1.35rem;
+}
+
+.actividades #actividades-antiguas .frame {
+  overflow: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .actividades #actividades-antiguas .frame {
+    height: calc(100vh - 23 * 1.35rem);
+  }
+}
+
+.actividades header.main {
+  display: block;
+}
+
+.actividades #seleccion {
+  padding-bottom: 1.35rem;
+}
+
+.actividades #seleccion tr {
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.actividades #seleccion tr td:first-child {
+  padding-left: 0;
+}
+
+.actividades #seleccion tr td:last-child {
+  padding-right: 0;
+}
+
+.actividades #seleccion table {
+  width: calc(100% - 2.7rem);
+  margin: 0 1.35rem 2.7rem;
+}
+
+.actividades #seleccion h3 {
+  margin-bottom: 1.35rem;
+  padding-top: 1.35rem;
+}
+
+.actividades #seleccion button,
+.actividades #seleccion a.button {
+  border-color: #FFFFFF;
+  margin: 0 1.35rem;
+}
+
+.actividades .row {
+  display: block;
+  margin-bottom: 2.7rem;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+.actividades .track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.actividades .pull-left {
+  padding-top: 1.35rem;
+}
+
+.actividades .pull-left h3 {
+  padding: 0 1.35rem;
+  margin-bottom: 0;
+}
+
+.actividades .pull-left section {
+  margin-bottom: 0.675rem;
+}
+
+@media screen and (min-width: 750px) {
+  .actividades {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .actividades #seleccion {
+    width: 21.6rem;
+  }
+  .actividades .wrapper {
+    width: calc(100% - 21.6rem);
+  }
+}
+
+/* Crear */
+.crear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.crear .wrapper {
+  width: 100%;
+}
+
+.crear .sidebar {
+  width: 100%;
+}
+
+.crear li {
+  text-align: left;
+}
+
+.crear .logo {
+  margin-bottom: 0;
+}
+
+.crear .fas {
+  margin-left: 0.675rem;
+}
+
+.crear .actions {
+  padding: 1.35rem 1.35rem 0;
+  margin-bottom: 1.35rem;
+}
+
+.crear .button {
+  margin-top: 1.35rem;
+  margin-bottom: 2.7rem;
+}
+
+.crear .button-container .button {
+  margin-top: 0;
+}
+
+.crear .container {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0 auto;
+}
+
+.crear form {
+  margin: 0 auto auto;
+}
+
+@media screen and (min-width: 750px) {
+  .crear {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+  }
+  .crear .wrapper {
+    width: 40%;
+  }
+  .crear .sidebar {
+    width: 60%;
+  }
+}
+
+.fa-chevron-down,
+.fa-chevron-left {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.actividades .wrapper .track {
+  -webkit-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+}
+
+.actividades .wrapper .open-left {
+  left: -21.6rem;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,483 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "specs-json-server",
+      "author": "magiraldooc"
+    }
+  ],
+  "profile": {
+    "name": "magiraldooc"
+  },
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Andes"
+    },
+    {
+      "id": 2,
+      "name": "Decameron"
+    },
+    {
+      "id": 3,
+      "name": "Palace"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "magiraldooc",
+      "password": "123456",
+      "accounts": [
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "username": "jnset",
+      "password": "123456",
+      "accounts": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "username": "daramirez",
+      "password": "ariadna00",
+      "accounts": [
+        1,
+        2
+      ]
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "name": "Pacífico",
+      "date": "03/12/2018"
+    },
+    {
+      "id": 2,
+      "accountId": 1,
+      "name": "Ahora es posible",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 3,
+      "accountId": 2,
+      "name": "Hot sale",
+      "date": "03/12/2018"
+    },
+    {
+      "id": 4,
+      "accountId": 2,
+      "name": "Cyber days",
+      "date": "10/04/2019"
+    }
+  ],
+  "specs": [
+    {
+      "id": 1,
+      "campaignId": 1,
+      "medium": "Facebook",
+      "format": "Carousel",
+      "creative": "Secuencia",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 1920 x 720",
+      "comment": "Prueba de campaña inicial",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "27/02/2019"
+    },
+    {
+      "id": 2,
+      "campaignId": 1,
+      "medium": "Instagram",
+      "format": "Storie",
+      "creative": "Secuencia",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 720 x 720",
+      "comment": "Anuncio que funciona mejor en campañas de este tipo",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "04/02/2019"
+    },
+    {
+      "id": 3,
+      "campaignId": 1,
+      "medium": "Twitter",
+      "format": "Carousel",
+      "creative": "Secuencia",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 600 x 600",
+      "comment": "Otra campaña o Specs de prueba",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "23/01/2019"
+    },
+    {
+      "id": 4,
+      "campaignId": 2,
+      "medium": "Facebook",
+      "format": "Carousel",
+      "creative": "Secuencia",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 1920 x 720",
+      "comment": "Prueba de campaña inicial",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "22/01/2019"
+    },
+    {
+      "id": 5,
+      "campaignId": 2,
+      "medium": "Instagram",
+      "format": "Share",
+      "creative": "Secuencia",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 1920 x 780",
+      "comment": "Prueba",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "14/02/2019"
+    },
+    {
+      "id": 6,
+      "campaignId": 2,
+      "medium": "Twitter",
+      "format": "Tweet Sponsored",
+      "creative": "Secuencia",
+      "contentType": "Text",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 600 x 600",
+      "comment": "Otra campaña o Specs d eprueba",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\n Número máximo de imágenes: 10.\n Tipo de archivo de imagen: jpg o png.\n Tipo de archivo de video: formatos de archivo compatibles.\n Tamaño máximo del archivo de video: 4 GB.\n Duración del video: hasta 240 minutos.\n Tamaño máximo del archivo de imagen: 30 MB.\n Resolución recomendada: 1.080 x 1.080 píxeles como mínimo.\n Relación de aspecto recomendada: 1: 1.",
+      "date": "04/01/2019"
+    },
+    {
+      "id": 7,
+      "campaignId": 3,
+      "medium": "Twitter",
+      "format": "Promoted Tweet",
+      "creative": "Dark (Tweet + Image)",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "800 x 418, 800 x 800",
+      "comment": "",
+      "weight": "< 3 MB",
+      "text": 256,
+      "title": 70,
+      "description": 50,
+      "videoLength": "",
+      "observation": "800 x 418 pixeles para una relación de aspecto de 1.91:1, 800 x 800 pixeles para una relación de aspecto 1:1",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 8,
+      "campaignId": 3,
+      "medium": "Instagram",
+      "format": "Link Ad",
+      "creative": "Imagen/Video",
+      "contentType": "Video",
+      "contentFormat": "MP4 - MOV - GIF",
+      "size": "Cuadrado 1.080 x 1.080, Vertical 1.080 x 566",
+      "comment": "",
+      "weight": "< 2.3 GB",
+      "text": 125,
+      "title": 25,
+      "description": 30,
+      "videoLength": "Max 1 min",
+      "observation": "Los anuncios con video ofrecen la misma experiencia visual envolvente que los anuncios con foto de Instagram, con el valor añadido de que las imágenes tienen sonido y movimiento. Además, ahora puedes compartir videos de hasta 60 segundos en formato cuadrado u horizontal. \n Relación de aspecto de la imagen: 1,91:1",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 9,
+      "campaignId": 3,
+      "medium": "Facebook",
+      "format": "Carousel",
+      "creative": "Texto",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 1.080 x 1.080",
+      "comment": "",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\nNúmero máximo de imágenes: 10.\nTipo de archivo de imagen: jpg o png.\nTipo de archivo de video: formatos de archivo compatibles.\nTamaño máximo del archivo de video: 4 GB.\nDuración del video: hasta 240 minutos.\nTamaño máximo del archivo de imagen: 30 MB.\nResolución recomendada: 1.080 x 1.080 píxeles como mínimo.\nRelación de aspecto recomendada: 1: 1.",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 10,
+      "campaignId": 4,
+      "medium": "Twitter",
+      "format": "Promoted Tweet",
+      "creative": "Dark (Video)",
+      "contentType": "Video",
+      "contentFormat": "MP4 - MOV",
+      "size": "Relación de aspecto para videos: 16 x9 y 1 x1",
+      "comment": "",
+      "weight": "< 1 GB",
+      "text": 280,
+      "title": 70,
+      "description": 50,
+      "videoLength": "",
+      "observation": "Relación de aspecto: 16 x 9 o 1 x 1",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 11,
+      "campaignId": 4,
+      "medium": "Facebook",
+      "format": "Colection Ad",
+      "creative": "Catálogo (4 - 50 productos)",
+      "contentType": "Video",
+      "contentFormat": "MP4 - MOV - GIF",
+      "size": "",
+      "comment": "",
+      "weight": "< 4 GB",
+      "text": 90,
+      "title": 25,
+      "description": 0,
+      "videoLength": "Min 1 seg, Max 240 min",
+      "observation": "Relación de aspecto del video: de 9:16 a 16:9\nVelocidad de bits: si el archivo es menor a 1 GB y usa una codificación en dos pasos, no hay límite de velocidad de bits.En caso contrario, el límite es de 8 megabits por segundo para 1.080 píxeles y 4 megabits por segundo para 720 píxeles.\nResolución recomendada: sube el video con la resolución más alta que esté disponible y que cumpla los límites relativos al tamaño del archivo y la relación de aspecto.",
+      "date": "04/12/2018"
+    },
+    {
+      "id": 12,
+      "campaignId": 4,
+      "medium": "Facebook",
+      "format": "Carousel",
+      "creative": "Texto",
+      "contentType": "Imagen",
+      "contentFormat": "JPG - PNG",
+      "size": "Min 1.080 x 1.080",
+      "comment": "",
+      "weight": "< 30 MB",
+      "text": 125,
+      "title": 40,
+      "description": 20,
+      "videoLength": "",
+      "observation": "Número mínimo de imágenes: 2.\nNúmero máximo de imágenes: 10.\nTipo de archivo de imagen: jpg o png.\nTipo de archivo de video: formatos de archivo compatibles.\nTamaño máximo del archivo de video: 4 GB.\nDuración del video: hasta 240 minutos.\nTamaño máximo del archivo de imagen: 30 MB.\nResolución recomendada: 1.080 x 1.080 píxeles como mínimo.\nRelación de aspecto recomendada: 1: 1.",
+      "date": "04/12/2018"
+    }
+  ],
+  "mediums": [
+    {
+      "id": 1,
+      "name": "Twitter"
+    },
+    {
+      "id": 2,
+      "name": "Facebook"
+    },
+    {
+      "id": 3,
+      "name": "Instagram"
+    }
+  ],
+  "adFormats": [
+    {
+      "id": 1,
+      "name": "Promoted Tweet",
+      "mediumId": 1
+    },
+    {
+      "id": 2,
+      "name": "TweetCard URL",
+      "mediumId": 1
+    },
+    {
+      "id": 3,
+      "name": "TweetCard App",
+      "mediumId": 1
+    },
+    {
+      "id": 4,
+      "name": "TweetCard Leads",
+      "mediumId": 1
+    },
+    {
+      "id": 5,
+      "name": "Promoted Account",
+      "mediumId": 1
+    },
+    {
+      "id": 6,
+      "name": "Twitter (Instant Unlock)",
+      "mediumId": 1
+    }
+  ],
+  "creatives": [
+    {
+      "id": 1,
+      "name": "Visible",
+      "adFormatId": 1
+    },
+    {
+      "id": 2,
+      "name": "Dark (Tweet)",
+      "adFormatId": 1
+    },
+    {
+      "id": 3,
+      "name": "Dark (Tweet + Imagen)",
+      "adFormatId": 1
+    },
+    {
+      "id": 4,
+      "name": "Dark (Video)",
+      "adFormatId": 1
+    },
+    {
+      "id": 5,
+      "name": "Website Card",
+      "adFormatId": 2
+    },
+    {
+      "id": 6,
+      "name": "Basic App Card",
+      "adFormatId": 3
+    },
+    {
+      "id": 7,
+      "name": "Image App Card",
+      "adFormatId": 3
+    },
+    {
+      "id": 8,
+      "name": "Video App Card",
+      "adFormatId": 3
+    },
+    {
+      "id": 9,
+      "name": "Lead Generation Card",
+      "adFormatId": 4
+    },
+    {
+      "id": 10,
+      "name": "Promoted Account",
+      "adFormatId": 5
+    },
+    {
+      "id": 11,
+      "name": "Preview Teaser (Imagen o Video)",
+      "adFormatId": 6
+    },
+    {
+      "id": 12,
+      "name": "Tweet Pre - Populado",
+      "adFormatId": 6
+    },
+    {
+      "id": 13,
+      "name": "Titulo",
+      "adFormatId": 6
+    },
+    {
+      "id": 14,
+      "name": "Hashtag",
+      "adFormatId": 6
+    },
+    {
+      "id": 15,
+      "name": "Contenido desbloqueado (Imagen o Video)",
+      "adFormatId": 6
+    }
+  ],
+  "contentTypes": [
+    {
+      "id": 1,
+      "name": "Imagen"
+    },
+    {
+      "id": 2,
+      "name": "Video"
+    }
+  ],
+  "contentFormats": [
+    {
+      "id": 1,
+      "name": "JPG",
+      "contentTypeId": 1
+    },
+    {
+      "id": 2,
+      "name": "PNG",
+      "contentTypeId": 1
+    },
+    {
+      "id": 3,
+      "name": "JPG - PNG",
+      "contentTypeId": 1
+    },
+    {
+      "id": 4,
+      "name": "MP4",
+      "contentTypeId": 2
+    },
+    {
+      "id": 5,
+      "name": "MOV",
+      "contentTypeId": 2
+    },
+    {
+      "id": 6,
+      "name": "GIF",
+      "contentTypeId": 2
+    },
+    {
+      "id": 7,
+      "name": "MP4 - MOV",
+      "contentTypeId": 2
+    },
+    {
+      "id": 8,
+      "name": "MP4 - GIF",
+      "contentTypeId": 2
+    },
+    {
+      "id": 9,
+      "name": "MOV - GIF",
+      "contentTypeId": 2
+    },
+    {
+      "id": 10,
+      "name": "MP4 - MOV - GIF",
+      "contentTypeId": 2
+    }
+  ]
+}
