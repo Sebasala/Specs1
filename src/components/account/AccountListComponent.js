@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import AccountItemComponent from './AccountItemComponent';
 import { Link } from 'react-router-dom';
-import '../css/style.css';
+// import '../css/style.css';
 
 const AccountListComponent = ({ accounts }) => {
   return (

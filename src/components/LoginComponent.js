@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
 import RenderInputComponent from './fields/RenderInputComponent';
-import './css/style.css';
+// import './css/style.css';
 
 // En el parametro values van todos los campos del formulario
 const validate = values => {

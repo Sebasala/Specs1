@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/style.css';
+// import '../css/style.css';
 import moment from 'moment';
 import { formatDate } from '../../helpers/env';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../css/style.css';
+// import '../css/style.css';
 import SpecListComponent from './SpecListComponent';
 import CampaignListComponent from '../CampaignListComponent';
 import SpecContainer from '../../containers/SpecContainer';

@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import UserItemComponent from './UserItemComponent';
 import { Link } from 'react-router-dom';
-import '../css/style.css';
+// import '../css/style.css';
 
 const UserListComponent = ({ users, onEditDeleteClick, onBack }) => {
   return (

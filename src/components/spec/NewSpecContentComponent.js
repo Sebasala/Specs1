@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import RenderSelectComponent from './../fields/RenderSelectComponent';
 import RenderInputComponent from './../fields/RenderInputComponent';
 import SidebarComponent from './../SidebarComponent';
-import './../css/style.css';
+// import './../css/style.css';
 
 const validate = values => {
   const errors = {};

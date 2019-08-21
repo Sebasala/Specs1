@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import RenderSelectComponent from './fields/RenderSelectComponent';
 import RenderInputComponent from './fields/RenderInputComponent';
-import './css/style.css';
+// import './css/style.css';
 
 const validate = values => {
   const errors = {};
