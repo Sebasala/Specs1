@@ -1,0 +1,16 @@
+.fa-chevron-down,
+.fa-chevron-left {
+	transition: transform 0.5s ease;
+}
+
+.rotate {
+	transform: rotate(180deg);
+}
+
+.actividades .wrapper .track {
+	transition: left 0.5s ease;
+}
+
+.actividades .wrapper .open-left {
+	left: -$width-seleccion;
+}

@@ -13,6 +13,8 @@ import SpecsContainer from './containers/SpecsContainer';
 import NewSpecContainer from './containers/NewSpecContainer';
 import NotFoundContainer from './containers/NotFoundContainer';
 import { PrivateRoute } from './helpers/PrivateRoute';*/
+
+// COMPONENTS
 import Routes from './helpers/Routes';
 
 library.add(faUserTie, faChevronLeft, faChevronRight, faPencilAlt, fasCheckCircle, faCloudDownloadAlt, faPlusSquare, farCheckCircle, faBowlingBall);

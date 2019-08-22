@@ -1,0 +1,134 @@
+/* TYPE */
+/* Fonts */
+@import url($fonts-url);
+
+body,
+input,
+select {
+  font-family: $default-font-family;
+}
+
+h1,
+h2,
+h3,
+a,
+button,
+a.button,
+input[type="submit"],
+.select-field label,
+.numeric-field label {
+	font-weight: $bold-fw;
+}
+
+.field-output {
+	h2 {
+		font-weight: $normal-fw;
+	}
+
+	p {
+		font-weight: $bold-fw;
+	}
+}
+
+/* Colors */
+h1,
+h2,
+h3,
+a,
+button,
+a.button,
+input[type="submit"],
+.select-field label,
+.numeric-field label,
+.pull-left p {
+	color: $text-color-1; // Dark blue
+}
+
+label,
+td,
+th,
+td a,
+td button,
+.actions a {
+	color: $text-color-2; // Light gray
+}
+
+.row td,
+.pull-left h3,
+.row td button {
+	color: $text-color-3; // White
+}
+
+.field-output {
+	h2,
+	p {
+		color: $text-color-3; // White
+	}
+}
+
+.actividades #seleccion {
+	td,
+	h3,
+	button,
+	a.button {
+		color: $text-color-3; // White
+	}
+}
+
+.sidebar {
+	h1,
+	h2,
+	p {
+		color: $text-color-3; // White
+	}
+}
+
+/* Vertica Rhythm */
+html {
+	font-size: 80%;
+
+	@media screen and (min-width: $bp-1) {
+		font-size: 100%;
+	}
+}
+
+input:focus ~ label,
+input:valid ~ label {
+	@include type-setting(-1, $bfs, $scale);
+}
+
+body,
+input,
+a,
+td,
+select {
+	@include type-setting(0, $bfs, $scale);
+}
+
+h3,
+.cuentas a,
+.select-field label,
+.numeric-field label {
+	@include type-setting(1, $bfs, $scale);	
+}
+
+h2 {
+	@include type-setting(2, $bfs, $scale);	
+}
+
+h1 {
+	@include type-setting(3, $bfs, $scale);
+}
+
+/* Transforms and decorations */
+h1 {
+	text-transform: uppercase;
+
+	span {
+		text-transform: none;
+	}
+}
+
+a {
+	text-decoration: none;
+}

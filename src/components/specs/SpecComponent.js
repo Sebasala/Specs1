@@ -6,8 +6,8 @@ import { formatDate } from '../../helpers/env';
 const SpecComponent = ({ spec, campaign, onViewSpec }) => {
   //TODO: Enviar los datos a monstrar uno por uno, y no el objeto global completo
   return (
-    <div>
-      <section>
+    <div className="spec-component">
+      <section className="button-container">
         <button onClick={() => onViewSpec(-1)}>Cerrar</button>
       </section>
       <section>

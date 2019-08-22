@@ -1,0 +1,58 @@
+/* BACKGROUNDS */
+/* General */
+body {
+	background-image: url("img/circulos.svg");
+	background-size: cover;
+	background-position: 300px 0px;
+	background-repeat: no-repeat;
+
+	@media screen and (min-width: $bp-2) {
+		background-position: 500px 0px;
+	}
+
+	@media screen and (min-width: $bp-3) {
+		background-position: 625px 0px;
+	}
+
+	@media screen and (min-width: $bp-4) {
+		background-position: 750px 0px;
+	}
+
+	@media screen and (min-width: $bp-5) {
+		background-position: 1250px 0px;
+	}
+}
+
+.actividades,
+.crear {
+	background: none;
+}
+
+/* Forms */
+input,
+button,
+a.button {
+	background-color: transparent;
+}
+
+/* Sidebar */
+.sidebar {
+	background-color: $bg-color-2; // Dark blue
+}
+
+/* Actividades */
+.pull-left {
+	background-color: $bg-color-3;
+}
+
+.actividades {
+	.row {
+		background-color: $bg-color-4;
+	}
+}
+
+#seleccion {
+	background-color: $bg-color-2;
+}
+
+/* Crear */
