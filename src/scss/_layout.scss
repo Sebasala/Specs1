@@ -1,5 +1,4 @@
-/* LAYOUT */
-/* General */
+/* GENERAL */
 * {
 	box-sizing: border-box;
 }
@@ -8,15 +7,10 @@ body {
 	min-height: 100vh;
 }
 
-table {
-	width: calc(100% - #{$blh});
-	margin: 0 0.5 * $blh;
-}
-
+/* ELEMENTS */
 /* Content */
-img {
-	display: block;
-	max-width: 100%;
+h1, h2, h3, h4, h5, h6, p {
+	max-width: $text-max-width;
 }
 
 h1 {
@@ -27,6 +21,11 @@ h1 {
 h2,
 p {
 	padding: 0 $blh;
+}
+
+img {
+	display: block;
+	max-width: 100%;
 }
 
 .logo {
@@ -43,12 +42,7 @@ input[type="submit"] {
 	border-radius: $blh * 2;
 	width: auto;
 	cursor: pointer;
-}
-
-select,
-input {
-	display: block;
-	width: 100%;
+	margin: 0 $blh;
 }
 
 input,
@@ -78,50 +72,18 @@ label {
 	margin-bottom: $blh;
 }
 
-form {
-	width: 100%;
-}
-
-td button {
-	padding: 0;
-	margin: 0;
-	border: none;
-}
-
 input:focus ~ label,
 input:valid ~ label {
 	top: -$blh;
 	transition: top 0.2s ease;
 }
 
-.field {
-	position: relative;
-	@include centered(300px);
-
-	.error {
-		position: absolute;
-		top: 2 * $blh;
-		right: 0;
-	}
-
-	label {
-		position: absolute;
-		top: 0.5 * $blh;
-		left: 0;
-	}
+/* CONTAINERS */
+table {
+	width: calc(100% - #{$blh});
+	margin: 0 0.5 * $blh;
 }
 
-.select-field,
-.numeric-field {
-	@include centered(300px);
-	margin-bottom: 2 * $blh;
-
-	label {
-		text-align: center;
-	}
-}
-
-/* Containers */
 header {
 	margin-bottom: 2 * $blh;
 }
@@ -150,7 +112,7 @@ header {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
-	padding-left: $blh;
+	min-height: calc(100vh - 437px);
 
 	h1 {
 		margin-bottom: $blh;
@@ -187,6 +149,14 @@ header {
 				margin-bottom: 0;
 			}
 		}
+	}
+
+	@media screen and (min-width: $bp-1) {
+		min-height: calc(100vh - 544px);
+	}
+
+	@media screen and (min-width: $bp-2) {
+		min-height: 100vh;
 	}
 }
 
@@ -234,6 +204,56 @@ header {
 
 .spec {
 	margin-bottom: 0.5 * $blh;
+}
+
+.container--spec-list {
+	@media screen and (min-width: $bp-2) {
+		height: calc(100vh - 350px);
+		overflow: auto;	
+	}
+}
+
+/* Forms */
+form {
+	width: 100%;
+	max-width: $text-max-width;
+	margin: 0 auto;
+	text-align: center;
+}
+
+td {
+	button {
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
+}
+
+.field {
+	position: relative;
+	@include centered(300px);
+
+	.error {
+		position: absolute;
+		top: 2 * $blh;
+		right: 0;
+	}
+
+	label {
+		position: absolute;
+		top: 0.5 * $blh;
+		left: 0;
+	}
+}
+
+.select-field,
+.numeric-field {
+	@include centered(300px);
+	margin-bottom: 2 * $blh;
+
+	label {
+		text-align: center;
+	}
 }
 
 /* INTERNAL PAGES */

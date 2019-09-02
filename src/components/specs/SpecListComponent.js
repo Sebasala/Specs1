@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SpecListComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, onViewSpec }) => {
   return (
-    <table align='center'>
+    <table className="spec-list" align='center'>
       <tbody>
         <tr>
           <th className='left'><FontAwesomeIcon icon='check-circle' /></th>

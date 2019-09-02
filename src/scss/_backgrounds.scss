@@ -1,6 +1,7 @@
 /* BACKGROUNDS */
 /* General */
-body {
+.login,
+.cuentas {
 	background-image: url("img/circulos.svg");
 	background-size: cover;
 	background-position: 300px 0px;
@@ -21,11 +22,6 @@ body {
 	@media screen and (min-width: $bp-5) {
 		background-position: 1250px 0px;
 	}
-}
-
-.actividades,
-.crear {
-	background: none;
 }
 
 /* Forms */
@@ -54,5 +50,3 @@ a.button {
 #seleccion {
 	background-color: $bg-color-2;
 }
-
-/* Crear */

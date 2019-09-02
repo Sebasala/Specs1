@@ -38,7 +38,7 @@ const SidebarComponent = ({ campaign, medium, adFormat, creative, contents, cont
       }
       <div className='row'>
         <div className='img-container'>
-          {(creative && creative.image) ? (<img alt='Creative example' style={{ 'maxWidth': '300px' }} src={`data:${creative.image.contentType};base64,${Buffer.from(creative.image.data.data, 'base64').toString('base64')}`} />) : ``}
+          {(creative && creative.image) ? (<img alt='Creative example' src={`data:${creative.image.contentType};base64,${Buffer.from(creative.image.data.data, 'base64').toString('base64')}`} />) : ``}
         </div>
         {(contents && contents[contentView]) ? (
           <section className='observaciones'>

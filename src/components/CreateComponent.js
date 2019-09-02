@@ -46,7 +46,6 @@ class CreateComponent extends Component {
               </div>
               {(!campaign) ? (
                 <div>
-                  <hr></hr>
                   <div className='field'>
                     <Field name='name' component={RenderInputComponent} type='text' placeholder='Nombre de campaña' required></Field>
                   </div>
@@ -60,25 +59,6 @@ class CreateComponent extends Component {
           <h1>
             CAMPAÑA: {(campaign && campaign.name) ? <span>{campaign.name}</span> : `` }
           </h1>
-          <div className='fields-output'>
-            <ul className='actions'>
-              <li className='button-container'>
-                <Link to='#' className='button'>
-                  AGREGAR
-                </Link>
-              </li>
-              <li className='button-container'>
-                <Link to='#' className='button'>
-                  NUEVO
-                </Link>
-              </li>
-              <li className='button-container'>
-                <Link to='#' className='button'>
-                  TERMINAR
-                </Link>
-              </li>
-            </ul>
-            </div>
         </div>
       </div>
     );

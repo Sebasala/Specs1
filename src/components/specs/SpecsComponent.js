@@ -45,7 +45,7 @@ const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, sel
                     <label htmlFor='search'>Buscar</label>
                   </div>
                 </header>
-                <div className='frame'>
+                <div className='container--spec-list frame'>
                   <SpecListComponent specs={specs} campaign={campaign} urlPath={urlPath} onAddSpec={onAddSpec} onRemoveSpec={onRemoveSpec} onViewSpec={onViewSpec} />
                 </div>
               </section>
