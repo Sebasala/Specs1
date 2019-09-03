@@ -11,16 +11,17 @@ body {
 /* Content */
 h1, h2, h3, h4, h5, h6, p {
 	max-width: $text-max-width;
-}
-
-h1 {
-	@include box($blh);
-	padding-top: $blh;
+	margin: 0 auto $blh;
 }
 
 h2,
 p {
 	padding: 0 $blh;
+}
+
+h1 {
+	@include box($blh);
+	padding-top: $blh;
 }
 
 img {
@@ -30,7 +31,7 @@ img {
 
 .logo {
 	max-height: $blh * 5;
-	margin: 0  auto $blh * 2;
+	margin: 0  auto;
 }
 
 /* Forms */
@@ -42,7 +43,7 @@ input[type="submit"] {
 	border-radius: $blh * 2;
 	width: auto;
 	cursor: pointer;
-	margin: 0 $blh;
+	margin: 0 0.5 * $blh $blh;
 }
 
 input,
@@ -95,12 +96,6 @@ header {
 	justify-content: center;
 	max-width: 625px;
 	height: 100vh;
-}
-
-.button-container {
-	height: 2 * $blh;
-	padding: 0 $blh;
-	margin-bottom: $blh;
 }
 
 .row {
@@ -213,6 +208,75 @@ header {
 	}
 }
 
+.user-list-component {
+	padding-top: $blh;
+	min-height: 100vh;
+
+	.logo {
+		margin: 0 auto;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	header {
+		text-align: center;
+
+		@media screen and (min-width: $bp-1) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			
+			.logo,
+			.button--crear {
+				margin: 0 1.5 * $blh;
+			}
+		}
+	}
+
+	.info {
+		margin-bottom: $blh;
+
+		h2, p {
+			margin-bottom: 0;
+			max-width: 100%;
+		}
+	}
+	
+	.item {
+		margin: 0 0 $blh;
+		border: 2px solid $border-color-1;
+		border-radius: 0.5 * $blh;
+		padding-top: $blh;
+	}
+
+	.items {
+		padding: 0 $blh;
+
+		@media screen and (min-width: $bp-2) {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+
+			.item {
+				width: calc(50% - #{0.5 * $blh});
+			}
+		}
+
+		@media screen and (min-width: $bp-3) {
+			.item {
+				width: calc(33.33% - #{$blh});
+			}
+		}
+	}
+
+	.container--users-list {
+		max-width: 3 * $text-max-width;
+		margin: 0 auto;
+	}
+}
+
 /* Forms */
 form {
 	width: 100%;
@@ -253,6 +317,39 @@ td {
 
 	label {
 		text-align: center;
+	}
+}
+
+.container--buttons {
+	padding: 0 0.5 * $blh;
+}
+
+.user-form-component {
+	min-height: 100vh;
+	padding: $blh 0;
+
+	.logo {
+		margin-bottom: 0;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	form {
+		padding-top: 2 * $blh;
+		border: 1px solid white;
+		border-radius: 0.5 * $blh;
+	}
+
+	@media screen and (min-width: $bp-2) {
+		display: flex;
+		align-items: center;
+
+		header,
+		form {
+			margin: 0 auto;
+		}
 	}
 }
 
@@ -339,7 +436,6 @@ td {
 	h1 {
 		text-align: center;
 		padding: 0 $blh;
-		margin: 0 0 1 * $blh;
 	}
 
 	.container {

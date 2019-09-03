@@ -34,7 +34,7 @@ class AddContentComponent extends Component {
               </ul>
               <img className='logo' src='/images/logospecs.png' alt='Specs' />
             </header>
-            <form onSubmit={handleSubmit}>
+            <form className="light-bg" onSubmit={handleSubmit}>
               <div className='select-field'>
                 <Field name='content' component={RenderSelectComponent} onSelectChange={onContentChange} placeholder='Tipo de contenido' withFocus selectedValue={(content && content.id) ? content.id : ``}>
                   <option value=''>Nueva</option>

@@ -55,6 +55,7 @@ td button,
 
 .row td,
 .pull-left h3,
+.info h2,
 .row td button {
 	color: $text-color-3; // White
 }
@@ -68,9 +69,7 @@ td button,
 
 .actividades #seleccion {
 	td,
-	h3,
-	button,
-	a.button {
+	h3 {
 		color: $text-color-3; // White
 	}
 }

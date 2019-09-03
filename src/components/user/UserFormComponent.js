@@ -36,33 +36,41 @@ const validatePermissionLevel = value => (
 
 const UserFormComponent = ({ handleSubmit, submitting, pristine, submitSucceeded, onBack, newUser, accounts, userAccounts, onSelectChange }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='field'>
-        <Field name='firstName' component={RenderInputComponent} type='text' placeholder='Nombre' required></Field>
-      </div>
-      <div className='field'>
-        <Field name='lastName' component={RenderInputComponent} type='text' placeholder='Apellido' required></Field>
-      </div>
-      <div className='field'>
-        <Field name='email' component={RenderInputComponent} type='text' placeholder='Correo' required validate={validateEmail} ></Field>
-      </div>
-      <div className='field'>
-        <Field name='password' component={RenderInputComponent} type='password' placeholder='Contraseña' required={!!newUser} validate={validatePassword} ></Field>
-      </div>
-      <div className='numeric-field'>
-        <Field name='permissionLevel' component={RenderInputComponent} type='number' placeholder='Nivel de permiso' min={1} validate={validatePermissionLevel}></Field>
-      </div>
-      <div className='select-field'>
-        <Field name='userAccounts' component={RenderMultiSelectComponent} placeholder='Campaña' selectedValue={userAccounts} onSelectChange={onSelectChange} >
-          {accounts.map(account => (
-            <option key={account.id} value={account.id}>{account.name}</option>
-          ))}
-        </Field>
-      </div>
-      <button type='submit' disabled={submitting || pristine} className='button'>Guardar</button>
-      <button type='button' disabled={submitting} onClick={onBack}>Cancelar</button>
-      <Prompt when={!pristine && !submitSucceeded} message={'Los datos modificados se perderán al continuar la acción'}></Prompt>
-    </form>
+    <div className='user-form-component'>
+      <header>
+        <img className='logo' src='../images/logospecs.png' alt='Specs' />
+        <h1>USUARIO</h1>
+      </header>
+      <form className="light-bg" onSubmit={handleSubmit}>
+        <div className='field'>
+          <Field name='firstName' component={RenderInputComponent} type='text' placeholder='Nombre' required></Field>
+        </div>
+        <div className='field'>
+          <Field name='lastName' component={RenderInputComponent} type='text' placeholder='Apellido' required></Field>
+        </div>
+        <div className='field'>
+          <Field name='email' component={RenderInputComponent} type='text' placeholder='Correo' required validate={validateEmail} ></Field>
+        </div>
+        <div className='field'>
+          <Field name='password' component={RenderInputComponent} type='password' placeholder='Contraseña' required={!!newUser} validate={validatePassword} ></Field>
+        </div>
+        <div className='numeric-field'>
+          <Field name='permissionLevel' component={RenderInputComponent} type='number' placeholder='Nivel de permiso' min={1} validate={validatePermissionLevel}></Field>
+        </div>
+        <div className='select-field'>
+          <Field name='userAccounts' component={RenderMultiSelectComponent} placeholder='Campaña' selectedValue={userAccounts} onSelectChange={onSelectChange} >
+            {accounts.map(account => (
+              <option key={account.id} value={account.id}>{account.name}</option>
+            ))}
+          </Field>
+        </div>
+        <div className='container--buttons'>
+          <button type='submit' disabled={submitting || pristine} className='button'>Guardar</button>
+          <button type='button' disabled={submitting} onClick={onBack}>Cancelar</button>
+        </div>
+        <Prompt when={!pristine && !submitSucceeded} message={'Los datos modificados se perderán al continuar la acción'}></Prompt>
+      </form>
+    </div>
   );
 };
 

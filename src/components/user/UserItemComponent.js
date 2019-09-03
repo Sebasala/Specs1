@@ -4,28 +4,30 @@ import { Link } from 'react-router-dom';
 
 const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack }) => {
   return (
-    <div>
-      <h2>Nombre: {name}</h2>
-      <p>Correo: {email}</p>
-      <p>Nivel de permiso: {permissionLevel}</p>
+    <div className="dark-bg">
+      <div className='info'>
+        <h2>{name}</h2>
+        <p>{email}</p>
+        <p>Nivel de permiso: {permissionLevel}</p>
+      </div>
       {(onDelete) ? (
-        <p>
+        <div className="container--buttons" >
           <Link to='#' className='button' onClick={() => onDelete(id)}>
             ELIMINAR
           </Link>
           <Link to='#' className='button' onClick={onBack}>
             ATRAS
           </Link>
-        </p>) :
+        </div>) :
         (
-        <p>
+        <div className="container--buttons">
           <Link to={`/user/${id}`} onClick={() => onEditDeleteClick(id)} className='button'>
             EDITAR
           </Link>
           <Link to={`/user/delete/${id}`} onClick={() => onEditDeleteClick(id)} className='button'>
             ELIMINAR
           </Link>
-        </p>)
+        </div>)
       }
     </div>
   );

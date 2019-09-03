@@ -5,7 +5,7 @@ import SelectedSpecListItemComponent from './SelectedSpecListItemComponent';
 
 const SelectedSpecsListComponent = ({ selectedSpecs, campaigns, onRemoveSpec, onExport }) => {
   return (
-    <section id='seleccion'>
+    <section className="dark-bg" id='seleccion'>
       <div className='container'>
         <h3>SELECCIÓN</h3>
         <table>

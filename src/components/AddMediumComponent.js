@@ -39,7 +39,7 @@ class AddMediumComponent extends Component {
               </ul>
               <img className='logo' src='/images/logospecs.png' alt='Specs' />
             </header>
-            <form onSubmit={handleSubmit}>
+            <form className="light-bg" onSubmit={handleSubmit}>
               <div className='select-field'>
                 <Field name='medium' component={RenderSelectComponent} onSelectChange={onMediumChange} placeholder='Medio' withFocus selectedValue={(medium && medium.id) ? medium.id : ``}>
                   <option value=''>Nueva</option>

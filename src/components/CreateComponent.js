@@ -35,7 +35,7 @@ class CreateComponent extends Component {
               </ul>
               <img className='logo' src='/images/logospecs.png' alt='Specs' />
             </header>
-            <form onSubmit={handleSubmit}>
+            <form className="light-bg" onSubmit={handleSubmit}>
               <div className='select-field'>
                 <Field name='campaign' component={RenderSelectComponent} onSelectChange={onCampaignChange} placeholder='Campaña' withFocus selectedValue={(campaign && campaign.id) ? campaign.id : ``}>
                   <option value=''>Nueva</option>

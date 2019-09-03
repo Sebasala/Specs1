@@ -1,7 +1,9 @@
 /* BACKGROUNDS */
 /* General */
 .login,
-.cuentas {
+.cuentas,
+.user-list-component,
+.user-form-component {
 	background-image: url("img/circulos.svg");
 	background-size: cover;
 	background-position: 300px 0px;
@@ -24,11 +26,49 @@
 	}
 }
 
-/* Forms */
-input,
-button,
-a.button {
+// ELEMENT
+input {
 	background-color: transparent;
+}
+
+// CONTAINERS
+.user-list-component {
+	.item {
+		background-color: rgba($aqua, 0.8);
+	}
+}
+
+.light-bg {
+	button,
+	a.button {
+		background-color: transparent;
+		color: $dark-blue;
+
+		&:hover {
+			background-color: $dark-blue;
+			color: white;
+		}
+	}
+}
+
+.dark-bg {
+	button,
+	a.button {
+		background-color: transparent;
+		color: white;
+		border-color: white;
+
+		&:hover {
+			background-color: white;
+			color: $dark-blue;
+		}
+	}
+}
+
+.user-form-component {
+	form {
+		background-color: rgba(white, 0.8);
+	}
 }
 
 /* Sidebar */
