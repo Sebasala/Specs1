@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack }) => {
   return (
-    <div className="dark-bg">
+    <div>
       <div className='info'>
         <h2>{name}</h2>
         <p>{email}</p>

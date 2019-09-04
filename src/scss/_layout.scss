@@ -80,6 +80,44 @@ input:valid ~ label {
 }
 
 /* CONTAINERS */
+nav {
+	width: 0.5 * $text-max-width;
+	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	left: -0.5 * $text-max-width;
+	z-index: 10;
+
+	h2, a {
+		padding: 0.5 * $blh $blh;
+	}
+
+	button {
+		padding: 0;
+		border: 0;
+		line-height: 2 * $blh;
+		width: 2 * $blh;
+		background: transparent;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		right: - 2 * $blh;
+
+		i {
+			vertical-align: middle;
+		}
+	}
+
+	h2 {
+		margin: 0;
+	}
+
+	a {
+		display: block;
+		width: 100%;
+	}
+}
+
 table {
 	width: calc(100% - #{$blh});
 	margin: 0 0.5 * $blh;

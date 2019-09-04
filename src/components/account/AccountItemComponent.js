@@ -17,14 +17,14 @@ const AccountItemComponent = ({ id, name, logo, onDelete, onBack }) => {
           </Link>
         </p>) :
         (
-        <p>
+        <div className="container--buttons" >
           <Link to = {`/account2/${id}`} className='button'>
             EDITAR
           </Link>
           <Link to={`/account2/delete/${id}`} className='button'>
             ELIMINAR
           </Link>
-        </p>)
+        </div>)
       }
     </div>
   );

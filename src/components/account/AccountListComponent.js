@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 const AccountListComponent = ({ accounts }) => {
   return (
     <div>
-      <ul className='Items'>
+      <ul className='items'>
         {accounts.map(account =>
-          <li className='item' key={account.id}>
+          <li className='item dark-bg' key={account.id}>
             <AccountItemComponent
               id={account.id} name={account.name} logo={account.logo} />
           </li>

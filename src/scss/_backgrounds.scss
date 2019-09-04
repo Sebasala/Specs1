@@ -32,10 +32,20 @@ input {
 }
 
 // CONTAINERS
-.user-list-component {
-	.item {
-		background-color: rgba($aqua, 0.8);
+nav {
+	background-color: $aqua;
+
+	a:hover {
+		background-color: rgba(white, 0.2);
 	}
+
+	h2 {
+		color: white;
+	}
+}
+
+.item {
+	background-color: rgba($aqua, 0.8);
 }
 
 .light-bg {

@@ -15,42 +15,36 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          <li>
-            <ul>
-              <li>
-                <div>
-                  <i>add</i>
-                  Administración
-                </div>
-                <div>
-                  <ul>
-                    <li style={{ paddingLeft: 64 }}>
-                      <Link to='/users'>
-                        Usuario
-                      </Link>
-                    </li>
-                    <li style={{ paddingLeft: 64 }}>
-                      <Link to='/accounts2'>
-                        Cuenta
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to='/accounts'>
-              Cuentas
-            </Link>
-          </li>
-        </ul>
-        <Link to='#'>
+      <nav>
+        <button>
           <i className='material-icons'>menu</i>
-        </Link>
-      </div>
+        </button>
+        <section>
+          <h2>Administrar</h2>
+          <ul>
+            <li>
+              <Link to='/users'>
+                Usuarios
+              </Link>
+            </li>
+            <li>
+              <Link to='/accounts2'>
+                Cuentas
+              </Link>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Ver</h2>
+          <ul>
+            <li>
+              <Link to='/accounts'>
+                Cuentas
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </nav>
     );
   }
 }
