@@ -95,6 +95,7 @@ class UserContainer extends Component {
             users={users} onEditDeleteClick={this.handleEditDeleteClick} />}
           />
           <Route path={'/user/delete/:userId'} render={() => <UserItemComponent
+            confirmation={true}
             id={selectedUser.id}
             name={`${selectedUser.firstName} ${selectedUser.lastName}`}
             email={selectedUser.email}

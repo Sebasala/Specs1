@@ -2,9 +2,15 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack }) => {
+const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack, confirmation }) => {
+  let confirmationClass = "";
+
+  if (confirmation) {
+    confirmationClass = "confirmation dark-bg";
+  }
+  
   return (
-    <div>
+    <div className={confirmationClass} >
       <div className='info'>
         <h2>{name}</h2>
         <p>{email}</p>
@@ -37,6 +43,7 @@ UserItemComponent.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   permissionLevel: PropTypes.number.isRequired,
+  confirmation: PropTypes.bool.isRequired
 };
 
 export default UserItemComponent;

@@ -87,6 +87,7 @@ nav {
 	top: 0;
 	left: -0.5 * $text-max-width;
 	z-index: 10;
+	transition: left 0.5s ease;
 
 	h2, a {
 		padding: 0.5 * $blh $blh;
@@ -315,6 +316,14 @@ header {
 	}
 }
 
+.confirmation {
+	margin: 2 * $blh auto;
+	border: 2px solid $border-color-1;
+	border-radius: 0.5 * $blh;
+	padding-top: $blh;
+	max-width: $text-max-width;
+}
+
 /* Forms */
 form {
 	width: 100%;
@@ -439,6 +448,14 @@ td {
 				width: $width-seleccion;
 				overflow: auto;
 				min-height: 725px;
+				position: relative;
+
+				button,
+				a.button {
+					position: absolute;
+					top: 0.5 * $blh;
+					right: 0;
+				}
 
 				@media screen and (min-width: $bp-2) {
 					height: 100vh;
@@ -530,7 +547,7 @@ td {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		margin-bottom: $blh;
-		padding: $blh $blh 0;
+		padding: 2 * $blh $blh 0;
 	}
 
 	.checkbox {
