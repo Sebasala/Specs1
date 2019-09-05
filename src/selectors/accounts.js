@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 
-//TODO: Cambiar getAccounts por getUserAccounts
 export const getUserAccounts = state => state.accounts.userAccountList;
 export const getSelectedUserAccount = createSelector(
   (state) => state.accounts.userAccountList.find(a => a.id === state.accounts.selected),
