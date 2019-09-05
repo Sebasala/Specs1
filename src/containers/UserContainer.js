@@ -10,7 +10,8 @@ import {
   deleteUser,
   fetchAccounts,
   setSelectedUser,
-  setUserAccounts } from '../actions/index';
+  setUserAccounts
+} from '../actions/index';
 import { getUser } from './../selectors/user';
 import { getUsers, getSelectedUser, getUserAccounts } from './../selectors/users';
 import { getAccounts } from './../selectors/accounts';
@@ -86,8 +87,6 @@ class UserContainer extends Component {
 
   render() {
     const { users, selectedUser, accounts, userAccounts } = this.props;
-    /*var elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems);*/
     return (
       <div>
         <Switch>

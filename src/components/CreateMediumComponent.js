@@ -56,16 +56,6 @@ class CreateMediumComponent extends Component {
                   ))}
                 </Field>
               </div>
-              {/*
-              <div className='select-field'>
-                <Field name='creative' component={RenderSelectComponent} onSelectChange={onCreativeChange} placeholder='Creativo' selectedValue={(creative && creative.id) ? creative.id : ``}>
-                  <option value=''>Nueva</option>
-                  {creatives.map(creative => (
-                    <option key={creative.id} value={creative.id}>{creative.name}</option>
-                  ))}
-                </Field>
-              </div>
-              */}
               <button type='submit' className='button'>SIGUIENTE <FontAwesomeIcon icon='chevron-right' /></button>
             </form>
           </div>

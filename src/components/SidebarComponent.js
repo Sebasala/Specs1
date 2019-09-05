@@ -34,11 +34,12 @@ const SidebarComponent = ({ campaign, medium, adFormat, creative, contents, cont
               <p>{content.contentType.name} <FontAwesomeIcon icon='chevron-right' /></p>
             </Link>
           </div>
-        </div>)}) : ``
+        </div>)
+      }) : ``
       }
       <div className='row'>
         <div className='img-container'>
-          {(creative && creative.image) ? (<img alt='Creative example' src={`data:${creative.image.contentType};base64,${Buffer.from(creative.image.data.data, 'base64').toString('base64')}`} />) : ``}
+          {(creative && creative.image) ? (<img alt='Creative example' style={{ 'maxWidth': '300px' }} src={`data:${creative.image.contentType};base64,${Buffer.from(creative.image.data.data, 'base64').toString('base64')}`} />) : ``}
         </div>
         {(contents && contents[contentView]) ? (
           <section className='observaciones'>
@@ -69,28 +70,28 @@ const SidebarComponent = ({ campaign, medium, adFormat, creative, contents, cont
           </h2>
             <div className='content'>
               {(creative) ? (
-              <div>
-                <p>Longitud de título:</p>
-                <p>{creative.title}</p>
-                <p>Longitud de texto:</p>
-                <p>{creative.text}</p>
-                <p>Longitud de descripción:</p>
-                <p>{creative.description}</p>
-              </div>
+                <div>
+                  <p>Longitud de título:</p>
+                  <p>{creative.title}</p>
+                  <p>Longitud de texto:</p>
+                  <p>{creative.text}</p>
+                  <p>Longitud de descripción:</p>
+                  <p>{creative.description}</p>
+                </div>
               ) : ``}
               {(content) ? (
-              <div>
-                <p>Tipo de archivo:</p>
-                <p>{content.contentFormat.name}</p>
-                <p>Tamaño de archivo máximo:</p>
-                <p>{content.weight}</p>
-                <p>Duración del video:</p>
-                <p>{content.length}</p>
-                <p>Dimensiones:</p>
-                <p>{content.size}</p>
-                <p>Observación</p>
-                <p>{content.observation}</p>
-              </div>
+                <div>
+                  <p>Tipo de archivo:</p>
+                  <p>{content.contentFormat.name}</p>
+                  <p>Tamaño de archivo máximo:</p>
+                  <p>{content.weight}</p>
+                  <p>Duración del video:</p>
+                  <p>{content.length}</p>
+                  <p>Dimensiones:</p>
+                  <p>{content.size}</p>
+                  <p>Observación</p>
+                  <p>{content.observation}</p>
+                </div>
               ) : ``}
             </div>
           </section>

@@ -5,11 +5,12 @@ import { withRouter } from 'react-router-dom';
 import CampaignsComponent from '../components/CampaignsComponent';
 import { getUserAccountById } from '../selectors/accounts';
 import {
-  fetchCampaigns,
+  fetchAccountCampaigns,
   fetchSpecs,
   removeSpec,
   deselectSpec,
-  selectUserAccount } from '../actions/index';
+  selectUserAccount
+} from '../actions/index';
 import { getCampaigns } from '../selectors/campaigns';
 import { getSelectedSpecs, getSpecs } from '../selectors/specs';
 import { compareStringDate } from './../helpers/utils';
@@ -18,9 +19,10 @@ import { getUser } from '../selectors/user';
 
 class CampaignsContainer extends Component {
 
-  componentDidMount(){
-    this.props.selectUserAccount(this.props.accountId);
-    this.props.fetchCampaigns(this.props.user, this.props.accountId);
+  componentDidMount() {
+    const { selectUserAccount, fetchAccountCampaigns, accountId, user } = this.props;
+    selectUserAccount(accountId);
+    fetchAccountCampaigns(user, accountId);
   }
 
   handleExport = () => {
@@ -60,7 +62,7 @@ class CampaignsContainer extends Component {
 }
 
 CampaignsContainer.propTypes = {
-  fetchCampaigns: PropTypes.func.isRequired,
+  fetchAccountCampaigns: PropTypes.func.isRequired,
   account: PropTypes.object.isRequired,
   campaigns: PropTypes.array.isRequired,
   accountId: PropTypes.string.isRequired,
@@ -74,6 +76,6 @@ const mapStateToProps = (state, props) => ({
   specs: getSpecs(state),
 });
 
-const mapDispatchToProps = { fetchCampaigns, fetchSpecs, removeSpec, deselectSpec, selectUserAccount };
+const mapDispatchToProps = { fetchAccountCampaigns, fetchSpecs, removeSpec, deselectSpec, selectUserAccount };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CampaignsContainer));

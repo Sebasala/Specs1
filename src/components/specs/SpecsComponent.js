@@ -59,57 +59,6 @@ const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, sel
         </div>
       </div>
       <SelectedSpecsListComponent selectedSpecs={selectedSpecs} campaigns={campaigns} onRemoveSpec={onRemoveSpec} onExport={onExport} />
-      {/*<div id='containergris'>
-        <div id='firstspecs'>
-          <div className='creator'>
-            <table align='center'>
-              <tbody>
-                <tr>
-                  <th>
-                    <Link to={`/account/${campaign.accountId}`} className='buttona'>
-                      <FontAwesomeIcon icon='chevron-left' /> ATRAS
-                    </Link>
-                  </th>
-                  <th>
-                    <Link to={`/create/campaign`} className='buttonb'>
-                      CREAR <FontAwesomeIcon icon='pencil-alt' />
-                    </Link>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className='title'>
-            <img src='/images/logospecs.png' alt='logotipo specs' width='100'/>
-          </div>
-          <div id='first2'>
-            <h4>CAMPAÑA</h4>
-            <CampaignListComponent campaigns={[campaign]} urlPath={'campaign'} />
-          </div>
-          <div id='first5'>
-            <h4>SPECS</h4>
-            <div className='act2'>
-              <SpecListComponent specs={specs} campaign={campaign} urlPath={urlPath} onAddSpec={onAddSpec} onRemoveSpec={onRemoveSpec} />
-            </div>
-          </div>
-        </div>
-        <div id='fourthspecs'>
-          <div id='fourth'>
-            <div id='third'>
-              <div id='third2'>
-                <h3>SELECCIÓN</h3>
-                <SelectedSpecsListComponent selectedSpecs={selectedSpecs} campaigns={campaigns}/>
-              </div>
-              <div id='third3'>
-                <input type='submit' onClick={onExport} value='EXPORTAR'/>
-              </div>
-            </div>
-            <div id='fourth2'>
-              <Route path={'/campaign/:campaignId/spec/:specId'} render={props => <SpecContainer campaignId={parseInt(props.match.params.campaignId)} specId={parseInt(props.match.params.specId)} />} />
-            </div>
-          </div>
-        </div>
-      </div>*/}
     </div>
   );
 };

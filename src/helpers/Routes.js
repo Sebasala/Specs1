@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { getUser } from '../selectors/user';
-
-// COMPONENTS
 import { PrivateRoute } from './PrivateRoute';
 import HomeContainer from '../containers/HomeContainer';
 import AccountsContainer from '../containers/AccountsContainer';
@@ -15,6 +12,7 @@ import UserContainer from './../containers/UserContainer';
 import AccountContainer from './../containers/AccountContainer';
 import NewSpecContainer from '../containers/NewSpecContainer';
 import NotFoundContainer from '../containers/NotFoundContainer';
+import { getUser } from '../selectors/user';
 import Sidebar from './Sidebar';
 
 class Routes extends Component {

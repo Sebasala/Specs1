@@ -52,15 +52,6 @@ const CampaignsComponent = ({ campaigns, lastCampaign, urlPath, selectedSpecs, a
         </div>
       </div>
       <SelectedSpecsListComponent selectedSpecs={selectedSpecs} campaigns={campaigns.concat(lastCampaign)} onRemoveSpec={onRemoveSpec} onExport={onExport} />
-      {/*<section id='seleccion'>
-        <div className='container'>
-          <h3>SELECCIÓN</h3>
-          <SelectedSpecsListComponent selectedSpecs={selectedSpecs} campaigns={campaigns.concat(lastCampaign)} />
-          <Link to={'#'} onClick={() => console.log('Export')}>
-            <FontAwesomeIcon icon='chevron-left' /> ATRAS
-          </Link>
-        </div>
-      </section>*/}
     </div>
   );
 };

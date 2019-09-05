@@ -17,27 +17,27 @@ export const compareStringDate = (obj1, obj2) => {
 export const loadState = () => {
   try {
     const stateTimestamp = localStorage.getItem('stateTimestamp') ? Number(localStorage.getItem('stateTimestamp')) : 0;
-    if (moment().diff(moment(stateTimestamp), 'minutes') > sessionTime){
+    if (moment().diff(moment(stateTimestamp), 'minutes') > sessionTime) {
       localStorage.removeItem('state');
       localStorage.removeItem('stateTimestamp');
       return undefined;
     }
     const serializedData = localStorage.getItem('state');
-    if(serializedData === null){
+    if (serializedData === null) {
       return undefined;
     }
     return JSON.parse(serializedData);
-  }catch (err){
+  } catch (err) {
     return undefined;
   }
 }
 
 export const saveState = state => {
-  try{
+  try {
     let serializedData = JSON.stringify(state);
     localStorage.setItem('state', serializedData);
     localStorage.setItem('stateTimestamp', moment().valueOf());
-  }catch (err){
+  } catch (err) {
 
   }
 }
@@ -90,7 +90,7 @@ export const rowManageClosure = (imageHeight, imageWidth, cellWidth = 64) => {
 }
 
 export const exportSpecs = specList => {
-  if (specList.length > 0){
+  if (specList.length > 0) {
     const workbook = new Excel.Workbook();
     specList.forEach((spec, index) => {
       const campaign = spec.campaign;
@@ -139,7 +139,7 @@ export const exportSpecs = specList => {
           row: 5,
         },
       });
-      if(account.logo) {
+      if (account.logo) {
         const accountLogo = workbook.addImage({
           base64: `data:${account.logo.contentType};base64,${Buffer.from(account.logo.data.data, 'base64').toString('base64')}`,
           extension: account.logo.contentType.split('/')[1],
@@ -196,7 +196,7 @@ export const exportSpecs = specList => {
         sheet.getCell(`C${rowManage.getRow()}`).value = 'SPECS';
         sheet.getCell(`F${rowManage.getRow()}`).value = 'CONTENIDO';
         sheet.getCell(`L${rowManage.getRow()}`).value = 'CARACTERES';
-        if (creative.text !== null) {
+        if (creative.text) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -214,7 +214,7 @@ export const exportSpecs = specList => {
             formula: `${creative.text}-LEN(F${rowManage.getRow()})`,
           };
         }
-        if (creative.title !== null) {
+        if (creative.title) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -233,7 +233,7 @@ export const exportSpecs = specList => {
           };
         }
 
-        if (creative.description !== null) {
+        if (creative.description) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -272,7 +272,7 @@ export const exportSpecs = specList => {
       }
       // Se deja una fila intermedia
       rowManage.addRow();
-      if (content.observation !== null && content.observation.trim() !== '') {
+      if (content.observation && content.observation.trim() !== '') {
         rowManage.addRow();
         sheet.mergeCells(`C${rowManage.getRow()}:M${rowManage.getRow()}`);
         sheet.getCell(`C${rowManage.getRow()}`).value = 'Observaciones';
@@ -338,7 +338,7 @@ export const exportSpecs = specList => {
       // Se deja una fila intermedia
       rowManage.addRow();
 
-      if (contentType !== null) {
+      if (contentType) {
         rowManage.addRow();
         sheet.mergeCells(`C${rowManage.getRow()}:M${rowManage.getRow()}`);
         sheet.getCell(`C${rowManage.getRow()}`).value = adFormat.name;
@@ -365,7 +365,7 @@ export const exportSpecs = specList => {
           horizontal: 'center',
         };
 
-        if (content.size !== null) {
+        if (content.size) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -379,7 +379,7 @@ export const exportSpecs = specList => {
             horizontal: 'center',
           };
         }
-        if (contentFormat !== null) {
+        if (contentFormat) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -393,7 +393,7 @@ export const exportSpecs = specList => {
             horizontal: 'center',
           };
         }
-        if (content.weight !== null) {
+        if (content.weight) {
           rowManage.addRow();
           sheet.mergeCells(`C${rowManage.getRow()}:E${rowManage.getRow()}`);
           sheet.mergeCells(`F${rowManage.getRow()}:K${rowManage.getRow()}`);
@@ -433,7 +433,7 @@ export const exportSpecs = specList => {
       const data = new Blob([xlsx], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
       const url = URL.createObjectURL(data);
       a.href = url;
-      a.download = `Specs_${ new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') }.xlsx`;
+      a.download = `Specs_${new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')}.xlsx`;
       document.body.appendChild(a);
       a.click();
       setTimeout(() => {

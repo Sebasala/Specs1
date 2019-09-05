@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 import SpecComponent from '../components/specs/SpecComponent';
 import {
   fetchSpecs,
-  viewSpec } from '../actions/index';
+  viewSpec
+} from '../actions/index';
 import { getSpecById } from '../selectors/specs';
 import { getCampaignById } from '../selectors/campaigns';
 

@@ -8,7 +8,8 @@ import CreateMediumComponent from '../components/CreateMediumComponent';
 import NewSpecContentComponent from '../components/spec/NewSpecContentComponent';
 import PropTypes from 'prop-types';
 import { getCampaigns, getCampaignById } from '../selectors/campaigns';
-import { getNewSpec,
+import {
+  getNewSpec,
   getNewSpecMediumById,
   getNewSpecAdFormatById,
   getNewSpecCreativeById,
@@ -16,13 +17,15 @@ import { getNewSpec,
   getNewSpecContentFormatById,
   getNewSpecContent,
   getNewSpecContentTmp,
-  getNewSpecContentView } from '../selectors/specs';
+  getNewSpecContentView
+} from '../selectors/specs';
 import { getMediums } from '../selectors/mediums';
 import { getAdFormats } from '../selectors/adFormats';
 import { getCreatives } from '../selectors/creatives';
 import { getContentTypes } from '../selectors/contentTypes';
 import { getContentFormats } from '../selectors/contentFormats';
-import { clearNewSpec,
+import {
+  clearNewSpec,
   setNewSpecMedium,
   setNewSpecAdFormat,
   setNewSpecCreative,
@@ -42,7 +45,8 @@ import { clearNewSpec,
   fetchCreatives,
   clearCreatives,
   fetchContentTypes,
-  fetchContentFormats } from '../actions/index';
+  fetchContentFormats
+} from '../actions/index';
 import { getUser } from '../selectors/user';
 
 class NewSpecContainer extends Component {
@@ -52,7 +56,7 @@ class NewSpecContainer extends Component {
     if (pathname.includes('/creative')) {
       this.props.clearNewSpec();
       this.props.fetchMediums(user);
-    } else if (pathname.includes('/content')){
+    } else if (pathname.includes('/content')) {
       this.props.clearMediums();
       this.props.clearAdFormats();
       this.props.fetchMediums(user);
@@ -238,6 +242,7 @@ const mapDispatchToProps = {
   setNewSpecContentDetail, setNewSpecContent,
   fetchMediums, clearMediums, fetchAdFormats, clearAdFormats,
   fetchCreatives, clearCreatives, fetchContentTypes, fetchContentFormats, clearNewSpec,
-  setNewSpecContentView, createSpec };
+  setNewSpecContentView, createSpec
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewSpecContainer));

@@ -6,7 +6,8 @@ import {
   DELETE_USER,
   SET_SELECTED_USER,
   SET_USER_ACCOUNTS,
-  CLEAR_USER_ACCOUNTS } from '../constants/actions';
+  CLEAR_USER_ACCOUNTS
+} from '../constants/actions';
 
 export const users = handleActions({
   [FETCH_USERS]: (state, action) => ({ ...state, list: action.payload }),
@@ -17,6 +18,6 @@ export const users = handleActions({
     const selectedUser = state.list.find(u => u.id === action.payload);
     return { ...state, selectedUser: selectedUser ? selectedUser : {} };
   },
-  [SET_USER_ACCOUNTS]: (state, action) => ({ ...state, selectedUser: { ...state.selectedUser, accounts: [ ...action.payload ] } }),
+  [SET_USER_ACCOUNTS]: (state, action) => ({ ...state, selectedUser: { ...state.selectedUser, accounts: [...action.payload] } }),
   [CLEAR_USER_ACCOUNTS]: (state, action) => ({ ...state, selectedUser: { ...state.selectedUser, accounts: [] } }),
 }, { list: [], selectedUser: {} });

@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions';
-import { FETCH_SPECS,
+import {
+  FETCH_SPECS,
   SELECT_SPEC,
   ADD_SPEC,
   SET_SPECS_SELECTED,
@@ -25,13 +26,14 @@ import { FETCH_SPECS,
   SET_NEW_SPEC_CONTENT,
   SET_NEW_SPEC_CONTENT_VIEW,
   CREATE_SPEC,
-  CREATE_CAMPAIGN_SPEC } from '../constants/actions';
+  CREATE_CAMPAIGN_SPEC
+} from '../constants/actions';
 
 export const specs = handleActions({
-  [FETCH_SPECS]: (state, action) => ({ ...state, list: [ ...action.payload ]}),
+  [FETCH_SPECS]: (state, action) => ({ ...state, list: [...action.payload] }),
   [SELECT_SPEC]: (state, action) => {
     const specList = [...state.list].map(spec => {
-      if(spec.id === action.payload){
+      if (spec.id === action.payload) {
         spec.selected = true;
       }
       return spec;
@@ -62,7 +64,7 @@ export const specs = handleActions({
   },
   [SET_SPECS_SELECTED]: (state, action) => {
     const specList = [...state.list].map(spec => {
-      if ([...state.selected].findIndex(ss => ss.id === spec.id) !== -1){
+      if ([...state.selected].findIndex(ss => ss.id === spec.id) !== -1) {
         spec.selected = true;
       }
       return spec;

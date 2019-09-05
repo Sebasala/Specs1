@@ -9,7 +9,6 @@ export const apiGetUsers = (url, user) => () =>
     .then(res => res.json());
 
 export const apiPostUser = (url, user, userData) => () => {
-  console.log(userData);
   const params = new URLSearchParams();
   params.append('firstName', userData.firstName);
   params.append('lastName', userData.lastName);
@@ -38,8 +37,7 @@ export const apiPostUser = (url, user, userData) => () => {
     });
 }
 
-//TODO: Cambiar nombre del método de apiPutUser a apiPatchUser
-export const apiPutUser = (url, user, userData) => () => {
+export const apiPatchUser = (url, user, userData) => () => {
   const params = new URLSearchParams();
   if (userData.firstName) {
     params.append('firstName', userData.firstName);
@@ -56,8 +54,8 @@ export const apiPutUser = (url, user, userData) => () => {
   if (userData.permissionLevel) {
     params.append('permissionLevel', userData.permissionLevel);
   }
-  if (userData.accounts && userData.accounts.length > 0){
-    for (let i = 0; i < userData.accounts.length; i ++){
+  if (userData.accounts && userData.accounts.length > 0) {
+    for (let i = 0; i < userData.accounts.length; i++) {
       params.append('accounts[]', userData.accounts[i]);
     }
   }

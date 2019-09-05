@@ -1,9 +1,10 @@
 import { handleActions } from 'redux-actions';
 import {
-  FETCH_CAMPAIGNS,
-  CREATE_CAMPAIGN } from '../constants/actions';
+  FETCH_ACCOUNT_CAMPAIGNS,
+  CREATE_ACCOUNT_CAMPAIGN
+} from '../constants/actions';
 
 export const campaigns = handleActions({
-  [CREATE_CAMPAIGN]: (state, action) => ({ ...state }),
-  [FETCH_CAMPAIGNS]: (state, action) => ({ ...state, list: [ ...action.payload] }),
+  [CREATE_ACCOUNT_CAMPAIGN]: (state, action) => ({ ...state }),
+  [FETCH_ACCOUNT_CAMPAIGNS]: (state, action) => ({ ...state, list: [...action.payload] }),
 }, { list: [] });

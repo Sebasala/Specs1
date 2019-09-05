@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class HomeContainer extends Component {
 
   componentDidMount() {
-    this.props.history.push('/login');
+    //this.props.history.push('/login');
   }
 
   render() {

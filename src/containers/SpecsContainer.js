@@ -10,19 +10,28 @@ import {
   selectSpec,
   deselectSpec,
   setSpecsSelected,
-  viewSpec } from './../actions/index';
+  viewSpec
+} from './../actions/index';
 import { getCampaignById, getCampaigns } from '../selectors/campaigns';
 import { getSpecs, getSelectedSpecs, getViewedSpec } from '../selectors/specs';
 import { compareStringDate, exportSpecs } from './../helpers/utils';
 import { getUser } from '../selectors/user';
 import { getSelectedUserAccount } from '../selectors/accounts';
+//TODO: GTM
+import TagManager from 'react-gtm-module';
 
 class SpecsContainer extends Component {
 
-  componentDidMount(){
-    const { fetchSpecs, setSpecsSelected, campaignId, user } = this.props;
-    fetchSpecs(user, campaignId)
-    .then(() => setSpecsSelected());
+  componentDidMount() {
+    const { fetchSpecs, setSpecsSelected, campaignId, campaign, user } = this.props;
+    fetchSpecs(user, campaignId).then(() => setSpecsSelected());
+    const { account, ...gtmCampaign } = campaign;
+    TagManager.dataLayer({
+      dataLayer: {
+        event: 'viewCampaign',
+        campaign: gtmCampaign
+      }
+    });
   }
 
   handleExport = () => {

@@ -31,7 +31,6 @@ export const apiPostAccount = (url, user, accountData) => () => {
     });
 }
 
-//TODO: Cambiar nombre del método de apiPutUser a apiPatchUser
 export const apiPatchAccount = (url, user, accountData) => () => {
   const params = new URLSearchParams();
   if (accountData.name) {

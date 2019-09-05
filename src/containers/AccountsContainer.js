@@ -10,14 +10,15 @@ import { getUser } from '../selectors/user';
 //TODO: Refactorizar a UserAccountsContainer
 class AccountsContainer extends Component {
 
-  componentDidMount(){
-    this.props.fetchUserAccounts(this.props.user);
+  componentDidMount() {
+    const { fetchUserAccounts, user } = this.props;
+    fetchUserAccounts(user);
   }
 
   render() {
     const { accounts } = this.props;
     return (
-      <AccountsComponent accounts={accounts} urlPath={'account/'}/>
+      <AccountsComponent accounts={accounts} urlPath={'account/'} />
     );
   }
 }

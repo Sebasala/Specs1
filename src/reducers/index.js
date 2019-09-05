@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxForm } from 'redux-form';
+import { sessionReducer as session } from 'redux-react-session';
 import { accounts } from './accounts';
 import { user } from './user';
 import { specs } from './specs'
 import { campaigns } from './campaigns';
 import { mediums } from './mediums';
-import { adFormats} from './adFormats';
+import { adFormats } from './adFormats';
 import { creatives } from './creatives';
 import { contentTypes } from './contentTypes';
 import { contentFormats } from './contentFormats';
@@ -24,5 +25,6 @@ export default combineReducers({
   creatives,
   contents,
   contentTypes,
-  contentFormats
+  contentFormats,
+  session
 });

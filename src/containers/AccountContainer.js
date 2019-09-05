@@ -8,7 +8,8 @@ import {
   createAccount,
   updateAccount,
   deleteAccount,
-  setAccountLogo } from '../actions/index';
+  setAccountLogo
+} from '../actions/index';
 import { getUser } from '../selectors/user';
 import { getAccounts, getSelectedAccount, getAccountLogo } from '../selectors/accounts';
 import AccountListComponent from './../components/account/AccountListComponent';

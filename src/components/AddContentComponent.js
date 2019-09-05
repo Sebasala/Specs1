@@ -51,25 +51,6 @@ class AddContentComponent extends Component {
           </div>
         </div>
         <SidebarComponent campaign={campaign} medium={medium} adFormat={adFormat} creative={creative} content={content} onAddSpec={onAddSpec} />
-        {/*<div className='sidebar sidebar--3'>
-          <h1>
-            CAMPAÑA: {(campaign && campaign.name) ? <span>{campaign.name}</span> : ``}
-          </h1>
-          <div className='fields-output'>
-            <div className='field-output'>
-              <p>Medio</p>
-              {(medium && medium.name) ? <h2>{medium.name}</h2> : ``}
-            </div>
-            <div className='field-output'>
-              <p>Formato</p>
-              {(adFormat && adFormat.name) ? <h2>{adFormat.name}</h2> : ``}
-            </div>
-            <div className='field-output'>
-              <p>Creativo</p>
-              {(creative && creative.name) ? <h2>{creative.name}</h2> : ``}
-            </div>
-          </div>
-        </div>*/}
       </div>
     );
   }

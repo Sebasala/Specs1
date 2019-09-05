@@ -8,16 +8,18 @@ import AddContentComponent from '../components/AddContentComponent';
 import PropTypes from 'prop-types';
 import { SubmissionError } from 'redux-form';
 import { getCampaigns, getCampaignById } from '../selectors/campaigns';
-import { getCreateSpec,
+import {
+  getCreateSpec,
   getAddSpecMediumById,
   getAddSpecAdFormatById,
   getAddSpecCreativeById,
   getAddSpecContentById,
-  getAddSpecContentFormatById } from '../selectors/specs';
+  getAddSpecContentFormatById
+} from '../selectors/specs';
 import { getMediums } from '../selectors/mediums';
 import {
-  createCampaign,
-  fetchCampaigns,
+  createAccountCampaign,
+  fetchAccountCampaigns,
   fetchSpecs,
 
   fetchMediums,
@@ -37,7 +39,8 @@ import {
   setSpecCreative,
   setSpecContent,
   setSpecContentFormat,
-  fetchContents } from './../actions/index';
+  fetchContents
+} from './../actions/index';
 import { getAdFormats } from './../selectors/adFormats';
 import { getCreatives } from './../selectors/creatives';
 import { getContentTypes } from './../selectors/contentTypes';
@@ -49,44 +52,46 @@ import { getSelectedUserAccount } from './../selectors/accounts';
 class CreateContainer extends Component {
 
   componentDidMount() {
-    const { location: { pathname }, campaign, user, campaignId } = this.props;
+    const { clearSpec, clearMediums, clearAdFormats, clearCreatives, setSpecCampaign, fetchMediums, location: { pathname }, history, campaign, user, campaignId } = this.props;
     if (pathname.includes('/campaign')) {
-      this.props.clearSpec();
+      clearSpec();
     } else if (pathname.includes('/medium')) {
-      this.props.clearMediums();
-      this.props.clearAdFormats();
-      this.props.clearCreatives();
-      this.props.clearSpec();
-      this.props.setSpecCampaign(campaignId ? campaignId : campaign.id);
-      this.props.fetchMediums(user);
+      clearMediums();
+      clearAdFormats();
+      clearCreatives();
+      clearSpec();
+      setSpecCampaign(campaignId ? campaignId : campaign.id);
+      fetchMediums(user);
     } else if (pathname.includes('/content')) {
-      this.props.clearMediums();
-      this.props.clearAdFormats();
-      this.props.clearCreatives();
-      this.props.clearSpec();
-      this.props.history.push('/create/campaign');
+      clearMediums();
+      clearAdFormats();
+      clearCreatives();
+      clearSpec();
+      history.push('/create/campaign');
     }
   }
 
   handleCampaignChange = event => {
+    const { setSpecCampaign } = this.props;
     const campaignId = event.target.value;
-    this.props.setSpecCampaign(campaignId);
+    setSpecCampaign(campaignId);
   }
 
   handleCampaignSubmitSuccess = () => {
-    this.props.clearMediums();
-    this.props.clearAdFormats();
-    this.props.clearCreatives();
-    this.props.fetchMediums(this.props.user);
-    this.props.history.push('/create/medium');
+    const { clearMediums, clearAdFormats, clearCreatives, fetchMediums, history, user } = this.props;
+    clearMediums();
+    clearAdFormats();
+    clearCreatives();
+    fetchMediums(user);
+    history.push('/create/medium');
   }
 
   handleCampaignSubmit = values => {
-    if (values.name && !values.campaign){
-      return this.props.createCampaign(this.props.user, { name: values.name, account: this.props.account.id })
+    if (values.name && !values.campaign) {
+      return this.props.createAccountCampaign(this.props.user, { name: values.name, account: this.props.account.id })
         .then(res => {
           this.props.setSpecCampaign(res.payload.id);
-          this.props.fetchCampaigns(this.props.user, this.props.account.id);
+          this.props.fetchAccountCampaigns(this.props.user, this.props.account.id);
         }).catch(err => {
           throw new SubmissionError(err);
         });
@@ -133,9 +138,11 @@ class CreateContainer extends Component {
   }
 
   handleContentSubmit = values => {
-    const  { user, campaign } = this.props;
-    return this.props.createCampaignSpec(this.props.user, { quantity: values.quantity,
-      content: this.props.addSpec.content, campaign: this.props.addSpec.campaign })
+    const { user, campaign } = this.props;
+    return this.props.createCampaignSpec(this.props.user, {
+      quantity: values.quantity,
+      content: this.props.addSpec.content, campaign: this.props.addSpec.campaign
+    })
       .then(res => {
         this.props.fetchSpecs(user, campaign.id);
       });
@@ -191,7 +198,7 @@ class CreateContainer extends Component {
             onSubmit={this.handleContentSubmit}
             newSpec={createSpec}
             onBack={this.handleBack}
-            //onAddSpec={this.handleAddSpec}
+          //onAddSpec={this.handleAddSpec}
           />}
         />
       </div>
@@ -223,9 +230,10 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = {
-  fetchSpecs, createCampaign, fetchCampaigns,
+  fetchSpecs, createAccountCampaign, fetchAccountCampaigns,
   setSpecCampaign, setSpecMedium, setSpecAdFormat, setSpecCreative,
   setSpecContent, setSpecContentFormat, fetchMediums, clearMediums, fetchAdFormats, clearAdFormats,
-  fetchCreatives, clearCreatives, fetchContentTypes, fetchContentFormats, clearSpec, fetchContents, createCampaignSpec };
+  fetchCreatives, clearCreatives, fetchContentTypes, fetchContentFormats, clearSpec, fetchContents, createCampaignSpec
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateContainer));

@@ -7,13 +7,6 @@ const CampaignListComponent = ({ campaigns, urlPath, onExportCampaign }) => {
   return (
     <table>
       <tbody>
-        {/*<tr>
-          <th className='left checkbox'><FontAwesomeIcon icon='check-circle' /></th>
-          <th className='left categoria'>CAMPAÑA</th>
-          <th className='left'>FECHA</th>
-          <th>DESCARGAR</th>
-          <th className='ver-mas'>VER MÁS</th>
-        </tr>*/}
         {campaigns.map(campaign => (
           <CampaignListItemComponent
             key={campaign.id}

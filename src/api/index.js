@@ -27,7 +27,7 @@ export const apiGetUserByCredentials = (url, user) => () => {
     .then(res =>
       res.json()
         .then(data => {
-          if(data.errors){
+          if (data.errors) {
             return Promise.reject({
               username: data.errors[0]
             });
@@ -35,23 +35,23 @@ export const apiGetUserByCredentials = (url, user) => () => {
           return data;
         })
     );
-    /*.then(v => {
-      return v.json().then(d => {
-        if (d.length === 0) {
-          return Promise.reject({
-            username: 'Usuario o contraseña inválidos'
-          });
-        }
-        console.log(d[0]);
-        return d[0];
-      });
-    })
-    .then(r => {
-      if (r.error) {
-        return Promise.reject(r.validation);
+  /*.then(v => {
+    return v.json().then(d => {
+      if (d.length === 0) {
+        return Promise.reject({
+          username: 'Usuario o contraseña inválidos'
+        });
       }
-      return r;
-    });*/
+      console.log(d[0]);
+      return d[0];
+    });
+  })
+  .then(r => {
+    if (r.error) {
+      return Promise.reject(r.validation);
+    }
+    return r;
+  });*/
 }
 
 export const apiPostCampaign = (url, user, campaign) => () => {
@@ -188,7 +188,7 @@ export const apiPostSpec = (creativesUrl, contentsUrl, user, spec) => () => {
   creativeParams.append('text', spec.creative.text ? spec.creative.text : 0);
   creativeParams.append('title', spec.creative.title ? spec.creative.title : 0);
   creativeParams.append('description', spec.creative.description ? spec.creative.description : 0);
-  if (spec.creative.image){
+  if (spec.creative.image) {
     creativeParams.append('image', spec.creative.image);
   }
   //TODO: Organizar el nombre de la llave format, debe ser adFormat (actions, reducers, etc)
@@ -208,7 +208,7 @@ export const apiPostSpec = (creativesUrl, contentsUrl, user, spec) => () => {
             username: 'Usuario o contraseña inválidos'
           });*/
           let contents = [];
-          for (let i = 0; i < Object.values(spec.content).length; i ++){
+          for (let i = 0; i < Object.values(spec.content).length; i ++) {
             contents.push(new Promise((resolve, reject) => {
               let content = Object.values(spec.content)[i];
               const contentParams = new URLSearchParams();
