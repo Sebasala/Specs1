@@ -17,7 +17,7 @@ const UserListComponent = ({ users, onEditDeleteClick, onBack }) => {
         </header>
         <ul className='items'>
           {users.map(user =>
-            <li className='item dark-bg' key={user.id}>
+            <li className='item light-bg' key={user.id}>
               <UserItemComponent
               id={user.id} name={`${user.firstName} ${user.lastName}`}
               email={user.email} permissionLevel={user.permissionLevel}

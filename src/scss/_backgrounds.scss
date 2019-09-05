@@ -3,7 +3,9 @@
 .login,
 .cuentas,
 .user-list-component,
-.user-form-component {
+.account-list-component,
+.user-form-component,
+.account-form-component {
 	background-image: url("img/circulos.svg");
 	background-size: cover;
 	background-position: 300px 0px;
@@ -76,7 +78,8 @@ nav {
 	}
 }
 
-.user-form-component {
+.user-form-component,
+.account-form-component {
 	form {
 		background-color: rgba(white, 0.8);
 	}

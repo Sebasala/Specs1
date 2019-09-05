@@ -15,18 +15,26 @@ const validate = values => {
 
 const AccountFormComponent = ({ handleSubmit, submitting, pristine, submitSucceeded, onBack, onLogoChange }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='field'>
-        <Field name='name' component={RenderInputComponent} type='text' placeholder='Nombre' required></Field>
-      </div>
-      <div className='field'>
-        <input type='file' name='logo' onChange={onLogoChange}/>
-        {/*<Field name='logo' component={RenderInputComponent} type='file' placeholder='Logo'></Field>*/}
-      </div>
-      <button type='submit' disabled={submitting} className='button'>Guardar</button>
-      <button type='button' disabled={submitting} onClick={onBack}>Cancelar</button>
-      <Prompt when={!pristine && !submitSucceeded} message={'Los datos modificados se perderán al continuar la acción'}></Prompt>
-    </form>
+    <div className='account-form-component'>
+      <header>
+        <img className='logo' src='../images/logospecs.png' alt='Specs' />
+        <h1>CUENTA</h1>
+      </header>
+      <form className="light-bg" onSubmit={handleSubmit}>
+        <div className='field'>
+          <Field name='name' component={RenderInputComponent} type='text' placeholder='Nombre' required></Field>
+        </div>
+        <div className='field'>
+          <input type='file' name='logo' onChange={onLogoChange}/>
+          {/*<Field name='logo' component={RenderInputComponent} type='file' placeholder='Logo'></Field>*/}
+        </div>
+        <div className='container--buttons'>
+          <button type='submit' disabled={submitting} className='button'>Guardar</button>
+          <button type='button' disabled={submitting} onClick={onBack}>Cancelar</button>
+        </div>
+        <Prompt when={!pristine && !submitSucceeded} message={'Los datos modificados se perderán al continuar la acción'}></Prompt>
+      </form>
+    </div>
   );
 };
 

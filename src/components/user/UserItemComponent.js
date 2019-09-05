@@ -6,7 +6,7 @@ const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditD
   let confirmationClass = "";
 
   if (confirmation) {
-    confirmationClass = "confirmation dark-bg";
+    confirmationClass = "confirmation light-bg";
   }
   
   return (

@@ -247,12 +247,54 @@ header {
 	}
 }
 
-.user-list-component {
+.confirmation {
+	margin: 2 * $blh auto;
+	border: 2px solid $aqua;
+	border-radius: 0.5 * $blh;
+	padding-top: $blh;
+	max-width: $text-max-width;
+	box-shadow: 1px 5px 5px rgba(black, 0.3);
+}
+
+.item {
+	margin: 0 0 $blh;
+	border: 2px solid $aqua;
+	border-radius: 0.5 * $blh;
+	padding-top: $blh;
+	box-shadow: 1px 5px 5px rgba(black, 0.3);
+}
+
+.items {
+	padding: 0 $blh;
+
+	@media screen and (min-width: $bp-2) {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+
+		.item {
+			width: calc(50% - #{0.5 * $blh});
+		}
+	}
+
+	@media screen and (min-width: $bp-3) {
+		.item {
+			width: calc(33.33% - #{$blh});
+		}
+	}
+}
+
+.user-list-component,
+.account-list-component {
 	padding-top: $blh;
 	min-height: 100vh;
 
 	.logo {
 		margin: 0 auto;
+	}
+
+	.logo--account {
+		margin: 0 $blh $blh;
 	}
 
 	h1 {
@@ -278,50 +320,29 @@ header {
 		margin-bottom: $blh;
 
 		h2, p {
-			margin-bottom: 0;
 			max-width: 100%;
 		}
-	}
-	
-	.item {
-		margin: 0 0 $blh;
-		border: 2px solid $border-color-1;
-		border-radius: 0.5 * $blh;
-		padding-top: $blh;
-	}
 
-	.items {
-		padding: 0 $blh;
-
-		@media screen and (min-width: $bp-2) {
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-around;
-
-			.item {
-				width: calc(50% - #{0.5 * $blh});
-			}
+		h2 {
+			margin-bottom: $blh;
 		}
 
-		@media screen and (min-width: $bp-3) {
-			.item {
-				width: calc(33.33% - #{$blh});
-			}
+		p {
+			margin-bottom: 0;
 		}
 	}
 
-	.container--users-list {
+	.container--users-list,
+	.container--accounts-list {
 		max-width: 3 * $text-max-width;
 		margin: 0 auto;
 	}
-}
 
-.confirmation {
-	margin: 2 * $blh auto;
-	border: 2px solid $border-color-1;
-	border-radius: 0.5 * $blh;
-	padding-top: $blh;
-	max-width: $text-max-width;
+	.account-item-component {
+		height: 100%;
+		display: flex;
+		flex-flow: column nowrap;
+	}
 }
 
 /* Forms */
@@ -369,9 +390,11 @@ td {
 
 .container--buttons {
 	padding: 0 0.5 * $blh;
+	margin-top: auto;
 }
 
-.user-form-component {
+.user-form-component,
+.account-form-component {
 	min-height: 100vh;
 	padding: $blh 0;
 
