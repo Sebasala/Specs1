@@ -18,7 +18,7 @@ import { compareStringDate, exportSpecs } from './../helpers/utils';
 import { getUser } from '../selectors/user';
 import { getSelectedUserAccount } from '../selectors/accounts';
 //TODO: GTM
-import TagManager from 'react-gtm-module';
+//import TagManager from 'react-gtm-module';
 
 class SpecsContainer extends Component {
 
@@ -27,12 +27,12 @@ class SpecsContainer extends Component {
     viewSpec(-1);
     fetchSpecs(user, campaignId).then(() => setSpecsSelected());
     const { account, ...gtmCampaign } = campaign;
-    TagManager.dataLayer({
+    /*TagManager.dataLayer({
       dataLayer: {
         event: 'viewCampaign',
         campaign: gtmCampaign
       }
-    });
+    });*/
   }
 
   handleExport = () => {

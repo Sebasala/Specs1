@@ -2,22 +2,28 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const AccountItemComponent = ({ id, name, logo, onDelete, onBack }) => {
+const AccountItemComponent = ({ id, name, logo, onDelete, onBack, confirmation }) => {
+  let confirmationClass = "account-item-component";
+
+  if (confirmation) {
+    confirmationClass = "account-item-component confirmation light-bg";
+  }
+  
   return (
-    <div className="account-item-component">
+    <div className={confirmationClass}>
       <div className='info'>
         <h2>{name}</h2>
         {logo ? (<img className="logo logo--account" alt='Account logo' style={{ 'maxWidth': '100px' }} src={`data:${logo.contentType};base64,${Buffer.from(logo.data.data, 'base64').toString('base64')}`} />) : ``}
       </div>
       {(onDelete) ? (
-        <p>
+        <div className="container--buttons">
           <Link to='#' className='button' onClick={() => onDelete(id)}>
             ELIMINAR
           </Link>
           <Link to='#' className='button' onClick={onBack}>
             ATRAS
           </Link>
-        </p>) :
+        </div>) :
         (
         <div className="container--buttons" >
           <Link to = {`/account2/${id}`} className='button'>
@@ -34,6 +40,7 @@ const AccountItemComponent = ({ id, name, logo, onDelete, onBack }) => {
 
 AccountItemComponent.propTypes = {
   name: PropTypes.string.isRequired,
+  confirmation: PropTypes.bool
 };
 
 export default AccountItemComponent;

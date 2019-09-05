@@ -88,6 +88,7 @@ class AccountContainer extends Component {
         <Route path={'/accounts2'} render={() => <AccountListComponent accounts={accounts} />} />
         <Switch>
           <Route path={'/account2/delete/:accountId'} render={() => <AccountItemComponent
+            confirmation={true}
             id={selectedAccount.id}
             name={selectedAccount.name}
             logo={selectedAccount.logo}

@@ -525,10 +525,6 @@ td {
 	}
 
 	td.categoria {
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: flex-start;
-
 		button {
 			margin-right: $blh;
 		}

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import {
   fetchUsers,
   createUser,
-  updateUser,
+  //updateUser,
   deleteUser,
   fetchAccounts,
   setSelectedUser,
@@ -140,6 +140,6 @@ const mapStateToProps = (state, props) => ({
   userAccounts: getUserAccounts(state)
 });
 
-const mapDispatchToProps = { fetchUsers, createUser, updateUser, deleteUser, fetchAccounts, setSelectedUser, setUserAccounts };
+const mapDispatchToProps = { fetchUsers, createUser, /*updateUser,*/ deleteUser, fetchAccounts, setSelectedUser, setUserAccounts };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserContainer));
