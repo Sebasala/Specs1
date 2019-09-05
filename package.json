@@ -15,6 +15,7 @@
     "node-sass": "^4.12.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-gtm-module": "^2.0.8",
     "react-pose": "^4.0.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -23,6 +24,7 @@
     "redux-actions": "^2.6.1",
     "redux-form": "^7.4.2",
     "redux-promise": "^0.6.0",
+    "redux-react-session": "^2.6.0",
     "reselect": "^3.0.1"
   },
   "scripts": {
