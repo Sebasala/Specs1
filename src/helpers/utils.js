@@ -89,6 +89,7 @@ export const rowManageClosure = (imageHeight, imageWidth, cellWidth = 64) => {
   };
 }
 
+//TODO: Agregar nombre de la campaña en el excel, no solo en el nombre de la hoja
 export const exportSpecs = specList => {
   if (specList.length > 0) {
     const workbook = new Excel.Workbook();

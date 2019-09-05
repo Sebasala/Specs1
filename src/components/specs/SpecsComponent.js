@@ -53,7 +53,7 @@ const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, sel
           </div>
           <div id='more-info' className='col pull-left'>
             {(viewedSpec && Object.keys(viewedSpec).length > 0) ?
-              <SpecContainer campaignId={campaign.id} specId={viewedSpec.id} /> : <div></div>}
+              <SpecContainer specId={viewedSpec.id} /> : <div></div>}
             {/*<Route path={'/campaign/:campaignId/spec/:specId'} render={props => <SpecContainer campaignId={parseInt(props.match.params.campaignId)} specId={parseInt(props.match.params.specId)} />} />*/}
           </div>
         </div>

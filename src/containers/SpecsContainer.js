@@ -23,7 +23,8 @@ import TagManager from 'react-gtm-module';
 class SpecsContainer extends Component {
 
   componentDidMount() {
-    const { fetchSpecs, setSpecsSelected, campaignId, campaign, user } = this.props;
+    const { fetchSpecs, viewSpec, setSpecsSelected, campaignId, campaign, user } = this.props;
+    viewSpec(-1);
     fetchSpecs(user, campaignId).then(() => setSpecsSelected());
     const { account, ...gtmCampaign } = campaign;
     TagManager.dataLayer({

@@ -7,8 +7,7 @@ import {
   fetchSpecs,
   viewSpec
 } from '../actions/index';
-import { getSpecById } from '../selectors/specs';
-import { getCampaignById } from '../selectors/campaigns';
+import { getViewedSpec } from '../selectors/specs';
 
 class SpecContainer extends Component {
 
@@ -18,9 +17,9 @@ class SpecContainer extends Component {
   }
 
   render() {
-    const { spec, campaign } = this.props;
+    const { spec } = this.props;
     return (
-      <SpecComponent spec={spec} campaign={campaign} onAddSpec={this.handleAddSpec} onViewSpec={this.handleViewSpec} />
+      <SpecComponent spec={spec} campaign={spec.campaign} onAddSpec={this.handleAddSpec} onViewSpec={this.handleViewSpec} />
     );
   }
 }
@@ -31,8 +30,7 @@ SpecContainer.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  spec: getSpecById(state, props),
-  campaign: getCampaignById(state, props)
+  spec: getViewedSpec(state, props)
 });
 
 const mapDispatchToProps = { fetchSpecs, viewSpec };

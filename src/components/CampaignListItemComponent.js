@@ -9,6 +9,7 @@ const CampaignListItemComponent = ({ id, name, date, urlPath, onExportCampaign }
   return (
     <tr>
       <td className='left checkbox'><FontAwesomeIcon icon='check-circle' /></td>
+      {/*TODO: Redirigir a la lista de specs al dar click sobre el nombre */}
       <td className='left categoria'>{name}</td>
       <td className='left fecha'>{moment(date).format(formatDate)}</td>
       <td className='download' onClick={() => onExportCampaign(id)}><FontAwesomeIcon icon='cloud-download-alt' /></td>

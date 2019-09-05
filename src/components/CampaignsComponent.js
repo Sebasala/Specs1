@@ -29,7 +29,7 @@ const CampaignsComponent = ({ campaigns, lastCampaign, urlPath, selectedSpecs, a
                 <h1>{account.name}</h1>
               </header>
               <section id='ultima-actividad'>
-                <h3>ÚLTIMA ACTIVIDAD</h3>
+                <h3>Última Campaña</h3>
                 <CampaignListComponent campaigns={lastCampaign} urlPath={urlPath} onExportCampaign={onExportCampaign} />
               </section>
             </div>
@@ -37,7 +37,7 @@ const CampaignsComponent = ({ campaigns, lastCampaign, urlPath, selectedSpecs, a
             <div className='container'>
               <section id='actividades-antiguas'>
                 <header>
-                  <h3>ACTIVIDADES ANTIGUAS</h3>
+                  <h3>Otras Campañas</h3>
                   <div className='field'>
                     <input type='text' name='search' required/>
                     <label htmlFor='search'>Buscar</label>
