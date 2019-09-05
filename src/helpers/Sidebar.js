@@ -6,29 +6,53 @@ import M from 'materialize-css';
 
 class Sidebar extends Component {
 
-  componentDidMount(){
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false
+    }
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  componentDidMount() {
     /*const sidenav = document.querySelector('.sidenav');
     M.Sidenav.init(sidenav);
     const collapsible = document.querySelector('.collapsible');
     M.Collapsible.init(collapsible);*/
   }
 
+  toggleMenu() {
+    this.setState({
+      open: !this.state.open
+    })
+  }
+
   render() {
+    let navClass = "nav--closed";
+
+    if (this.state.open === true) {
+      navClass = "nav--open";
+    } else {
+      navClass = "nav--closed";
+    }
+
     return (
-      <nav>
-        <button>
+      <nav className={navClass} >
+        <button onClick={this.toggleMenu} >
           <i className='material-icons'>menu</i>
         </button>
         <section>
           <h2>Administrar</h2>
           <ul>
             <li>
-              <Link to='/users'>
+              <Link onClick={this.toggleMenu} to='/users'>
                 Usuarios
               </Link>
             </li>
             <li>
-              <Link to='/accounts2'>
+              <Link onClick={this.toggleMenu} to='/accounts2'>
                 Cuentas
               </Link>
             </li>
@@ -38,7 +62,7 @@ class Sidebar extends Component {
           <h2>Ver</h2>
           <ul>
             <li>
-              <Link to='/accounts'>
+              <Link onClick={this.toggleMenu} to='/accounts'>
                 Cuentas
               </Link>
             </li>
