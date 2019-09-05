@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import {
   fetchUsers,
   createUser,
-  //updateUser,
+  updateUser,
   deleteUser,
   fetchAccounts,
   setSelectedUser,
