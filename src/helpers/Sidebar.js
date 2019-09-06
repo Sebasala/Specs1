@@ -61,6 +61,11 @@ class Sidebar extends Component {
                 Cuentas
               </Link>
             </li>
+            <li>
+              <Link onClick={this.toggleMenu} to='/new/spec/creative'>
+                Spec
+              </Link>
+            </li>
           </ul>
         </section>
         <section>
