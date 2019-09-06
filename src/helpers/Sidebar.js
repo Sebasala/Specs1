@@ -59,7 +59,7 @@ class Sidebar extends Component {
             </li>
             <li>
               <Link onClick={this.toggleMenu} to='/new/spec/creative'>
-                Spec
+                Crear Spec
               </Link>
             </li>
           </ul>
