@@ -84,7 +84,7 @@ class AccountContainer extends Component {
   render() {
     const { accounts, selectedAccount, accountLogo } = this.props;
     return (
-      <div>
+      <div className="account-container">
         <Route path={'/accounts2'} render={() => <AccountListComponent accounts={accounts} />} />
         <Switch>
           <Route path={'/account2/delete/:accountId'} render={() => <AccountItemComponent

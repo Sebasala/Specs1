@@ -87,8 +87,9 @@ class UserContainer extends Component {
 
   render() {
     const { users, selectedUser, accounts, userAccounts } = this.props;
+
     return (
-      <div>
+      <div className="user-container">
         <Switch>
           <Route path={'/users'} render={() => <UserListComponent
             users={users} onEditDeleteClick={this.handleEditDeleteClick} />}

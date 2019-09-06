@@ -11,6 +11,7 @@ const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditD
   
   return (
     <div className={confirmationClass} >
+      {(onDelete) ? (<section><h1>Confirmación</h1><p>¿Está seguro que desea eliminar este usuario?</p></section>) : ""}
       <div className='info'>
         <h2>{name}</h2>
         <p>{email}</p>

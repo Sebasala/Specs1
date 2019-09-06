@@ -11,6 +11,7 @@ const AccountItemComponent = ({ id, name, logo, onDelete, onBack, confirmation }
   
   return (
     <div className={confirmationClass}>
+      {(onDelete) ? (<section><h1>Confirmación</h1><p>¿Está seguro que desea eliminar esta cuenta?</p></section>) : ""}
       <div className='info'>
         <h2>{name}</h2>
         {logo ? (<img className="logo logo--account" alt='Account logo' style={{ 'maxWidth': '100px' }} src={`data:${logo.contentType};base64,${Buffer.from(logo.data.data, 'base64').toString('base64')}`} />) : ``}

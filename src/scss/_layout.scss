@@ -248,7 +248,7 @@ header {
 }
 
 .confirmation {
-	margin: 2 * $blh auto;
+	margin: 0 auto;
 	border: 2px solid $aqua;
 	border-radius: 0.5 * $blh;
 	padding-top: $blh;
@@ -343,6 +343,12 @@ header {
 		display: flex;
 		flex-flow: column nowrap;
 	}
+}
+
+.user-container,
+.account-container {
+	min-height: 100vh;
+	padding-top: $blh;
 }
 
 /* Forms */

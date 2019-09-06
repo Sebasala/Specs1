@@ -47,6 +47,11 @@ class Sidebar extends Component {
           <h2>Administrar</h2>
           <ul>
             <li>
+              <Link onClick={this.toggleMenu} to='/login'>
+                Login
+              </Link>
+            </li>
+            <li>
               <Link onClick={this.toggleMenu} to='/users'>
                 Usuarios
               </Link>
