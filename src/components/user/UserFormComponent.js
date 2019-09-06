@@ -65,7 +65,8 @@ const UserFormComponent = ({ handleSubmit, submitting, pristine, submitSucceeded
           </Field>
         </div>
         <div className='container--buttons'>
-          <button type='submit' disabled={submitting || pristine} className='button'>Guardar</button>
+          {/*<button type='submit' disabled={submitting || pristine} className='button'>Guardar</button>*/}
+          <button type='submit' disabled={submitting} className='button'>Guardar</button>
           <button type='button' disabled={submitting} onClick={onBack}>Cancelar</button>
         </div>
         <Prompt when={!pristine && !submitSucceeded} message={'Los datos modificados se perderán al continuar la acción'}></Prompt>
