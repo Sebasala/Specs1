@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import M from 'materialize-css';
 
 class Sidebar extends Component {
 
@@ -17,10 +16,7 @@ class Sidebar extends Component {
   }
 
   componentDidMount() {
-    /*const sidenav = document.querySelector('.sidenav');
-    M.Sidenav.init(sidenav);
-    const collapsible = document.querySelector('.collapsible');
-    M.Collapsible.init(collapsible);*/
+
   }
 
   toggleMenu() {
