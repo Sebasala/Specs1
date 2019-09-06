@@ -7,7 +7,7 @@ import { validateUser } from '../actions/index';
 import { SubmissionError } from 'redux-form';
 import { getUser } from '../selectors/user';
 //TODO: GTM
-//import TagManager from 'react-gtm-module';
+import TagManager from 'react-gtm-module';
 
 class LoginContainer extends Component {
 
@@ -25,7 +25,7 @@ class LoginContainer extends Component {
 
   handleSubmitSuccess = () => {
     const { user, history } = this.props;
-    /*TagManager.dataLayer({
+    TagManager.dataLayer({
       dataLayer: {
         event: 'login',
         user: {
@@ -33,7 +33,7 @@ class LoginContainer extends Component {
           email: user.email
         }
       }
-    });*/
+    });
     history.push('/accounts');
   }
 

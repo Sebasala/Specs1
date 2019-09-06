@@ -43,7 +43,7 @@ export const saveState = state => {
 }
 
 export const rowManageClosure = (imageHeight, imageWidth, cellWidth = 64) => {
-  let startRow = 10;
+  let startRow = 11;
   let imageColumn = 14;
   let imageRow = 9;
   let newImageWidth = 500;
@@ -89,7 +89,6 @@ export const rowManageClosure = (imageHeight, imageWidth, cellWidth = 64) => {
   };
 }
 
-//TODO: Agregar nombre de la campaña en el excel, no solo en el nombre de la hoja
 export const exportSpecs = specList => {
   if (specList.length > 0) {
     const workbook = new Excel.Workbook();
@@ -157,7 +156,7 @@ export const exportSpecs = specList => {
         });
       }
       sheet.mergeCells('C7:M7');
-      sheet.getCell('C7').value = `${medium.name.toUpperCase()} FORMATO: ${adFormat.name.toUpperCase()}`;
+      sheet.getCell('C7').value = `CAMPAÑA: ${campaign.name}`;
       sheet.getCell('C7').fill = {
         type: 'pattern',
         pattern: 'solid',
@@ -168,16 +167,28 @@ export const exportSpecs = specList => {
       sheet.getCell('C7').alignment = {
         horizontal: 'center',
       };
-      sheet.mergeCells('C9:M9');
-      sheet.getCell('C9').value = 'TEXTO';
-      sheet.getCell('C9').fill = {
+      sheet.mergeCells('C8:M8');
+      sheet.getCell('C8').value = `MEDIO: ${medium.name.toUpperCase()} - FORMATO: ${adFormat.name.toUpperCase()}`;
+      sheet.getCell('C8').fill = {
         type: 'pattern',
         pattern: 'solid',
         fgColor: {
           argb: 'FFC000',
         },
       };
-      sheet.getCell('C9').alignment = {
+      sheet.getCell('C8').alignment = {
+        horizontal: 'center',
+      };
+      sheet.mergeCells('C10:M10');
+      sheet.getCell('C10').value = 'TEXTO';
+      sheet.getCell('C10').fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: {
+          argb: 'FFC000',
+        },
+      };
+      sheet.getCell('C10').alignment = {
         horizontal: 'center',
       };
       const itemsNumber = spec.quantity ? spec.quantity : 1;

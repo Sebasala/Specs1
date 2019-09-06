@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 //TODO: GTM
-//import TagManager from 'react-gtm-module';
+import TagManager from 'react-gtm-module';
 import {
   FETCH_USER_ACCOUNTS,
   SELECT_USER_ACCOUNT,
@@ -13,7 +13,7 @@ import {
 
 export const accounts = handleActions({
   [FETCH_USER_ACCOUNTS]: (state, action) => {
-    /*TagManager.dataLayer({
+    TagManager.dataLayer({
       dataLayer: {
         event: 'viewUserAccounts',
         accounts: action.payload.reduce((accounts, account) => {
@@ -22,16 +22,16 @@ export const accounts = handleActions({
           return accounts;
         }, [])
       }
-    });*/
+    });
     return { ...state, userAccountList: [...action.payload] };
   },
   [SELECT_USER_ACCOUNT]: (state, action) => {
-    /*TagManager.dataLayer({
+    TagManager.dataLayer({
       dataLayer: {
         event: 'viewUserAccount',
         account: state.userAccountList.find(ua => ua.id === action.payload)
       }
-    });*/
+    });
     return { ...state, selected: action.payload };
   },
   [FETCH_ACCOUNTS]: (state, action) => ({ ...state, list: [...action.payload] }),
