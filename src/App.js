@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserTie, faChevronLeft, faChevronRight, faPencilAlt, faCheckCircle as fasCheckCircle, faCloudDownloadAlt, faPlusSquare, faBowlingBall } from '@fortawesome/free-solid-svg-icons';
+import { faUserTie, faChevronLeft, faChevronRight, faPencilAlt, faCheckCircle as fasCheckCircle, faCloudDownloadAlt, faPlusSquare, faBowlingBall, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faCheckCircle as farCheckCircle } from '@fortawesome/free-regular-svg-icons';
 //import 'materialize-css/dist/css/materialize.min.css';
 /*import HomeContainer from './containers/HomeContainer';
@@ -17,7 +17,7 @@ import { PrivateRoute } from './helpers/PrivateRoute';*/
 // COMPONENTS
 import Routes from './helpers/Routes';
 
-library.add(faUserTie, faChevronLeft, faChevronRight, faPencilAlt, fasCheckCircle, faCloudDownloadAlt, faPlusSquare, farCheckCircle, faBowlingBall);
+library.add(faUserTie, faChevronLeft, faChevronRight, faPencilAlt, fasCheckCircle, faCloudDownloadAlt, faPlusSquare, farCheckCircle, faBowlingBall, faTrash);
 
 class App extends Component {
 

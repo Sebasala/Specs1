@@ -10,7 +10,8 @@ import {
   selectSpec,
   deselectSpec,
   setSpecsSelected,
-  viewSpec
+  viewSpec,
+  deleteCampaignSpec
 } from './../actions/index';
 import { getCampaignById, getCampaigns } from '../selectors/campaigns';
 import { getSpecs, getSelectedSpecs, getViewedSpec } from '../selectors/specs';
@@ -65,6 +66,15 @@ class SpecsContainer extends Component {
       });
   }
 
+  handleDeleteCampaignSpec = specId => {
+    console.log('Eliminar spec')
+    const { user, fetchSpecs, deleteCampaignSpec, campaignId } = this.props;
+    deleteCampaignSpec(user, specId)
+      .then(() => {
+        fetchSpecs(user, campaignId);
+      })
+  }
+
   render() {
     const { specs, campaign, selectedSpecs, campaigns, viewedSpec } = this.props;
     specs.sort(compareStringDate);
@@ -76,6 +86,7 @@ class SpecsContainer extends Component {
         campaigns={campaigns} onExport={this.handleExport}
         onViewSpec={this.handleViewSpec} viewedSpec={viewedSpec}
         onExportCampaign={this.handleExportCampaign}
+        onDeleteCampaignSpec={this.handleDeleteCampaignSpec}
       />
     );
   }
@@ -98,6 +109,6 @@ const mapStateToProps = (state, props) => ({
   viewedSpec: getViewedSpec(state),
 });
 
-const mapDispatchToProps = { fetchSpecs, addSpec, removeSpec, selectSpec, deselectSpec, setSpecsSelected, viewSpec };
+const mapDispatchToProps = { fetchSpecs, addSpec, removeSpec, selectSpec, deselectSpec, setSpecsSelected, viewSpec, deleteCampaignSpec };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SpecsContainer));

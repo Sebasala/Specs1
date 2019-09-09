@@ -9,7 +9,7 @@ import CampaignListComponent from '../CampaignListComponent';
 import SpecContainer from '../../containers/SpecContainer';
 import SelectedSpecsListComponent from './SelectedSpecsListComponent';
 
-const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, selectedSpecs, campaigns, onExport, onViewSpec, viewedSpec, onExportCampaign }) => {
+const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, selectedSpecs, campaigns, onExport, onViewSpec, viewedSpec, onExportCampaign, onDeleteCampaignSpec }) => {
   return (
     <div className='actividades'>
       <div className='wrapper'>
@@ -46,7 +46,9 @@ const SpecsComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, sel
                   </div>
                 </header>
                 <div className='container--spec-list frame'>
-                  <SpecListComponent specs={specs} campaign={campaign} urlPath={urlPath} onAddSpec={onAddSpec} onRemoveSpec={onRemoveSpec} onViewSpec={onViewSpec} />
+                  <SpecListComponent specs={specs} campaign={campaign} urlPath={urlPath}
+                    onAddSpec={onAddSpec} onRemoveSpec={onRemoveSpec} onViewSpec={onViewSpec}
+                    onDeleteCampaignSpec={onDeleteCampaignSpec} />
                 </div>
               </section>
             </div>

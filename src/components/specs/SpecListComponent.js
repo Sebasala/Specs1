@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SpecListItemComponent from './SpecListItemComponent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const SpecListComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, onViewSpec }) => {
+const SpecListComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, onViewSpec, onDeleteCampaignSpec }) => {
   return (
     <table className="spec-list" align='center'>
       <tbody>
@@ -15,6 +15,7 @@ const SpecListComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, 
           <th className='left'>FECHA</th>
           {/*<th>DESCARGAR</th>*/}
           <th className='ver-mas'>VER MÁS</th>
+          <th className='ver-mas'>ELIMINAR</th>
         </tr>
         {specs.map(spec => (
           <SpecListItemComponent
@@ -30,6 +31,7 @@ const SpecListComponent = ({ specs, campaign, urlPath, onAddSpec, onRemoveSpec, 
             onRemoveSpec={onRemoveSpec}
             selected={spec.selected}
             onViewSpec={onViewSpec}
+            onDeleteCampaignSpec={onDeleteCampaignSpec}
           />
         ))}
       </tbody>

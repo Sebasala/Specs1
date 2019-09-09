@@ -26,7 +26,8 @@ import {
   SET_NEW_SPEC_CONTENT,
   SET_NEW_SPEC_CONTENT_VIEW,
   CREATE_SPEC,
-  CREATE_CAMPAIGN_SPEC
+  CREATE_CAMPAIGN_SPEC,
+  DELETE_CAMPAIGN_SPEC
 } from '../constants/actions';
 
 export const specs = handleActions({
@@ -147,5 +148,8 @@ export const specs = handleActions({
   },
   [CREATE_CAMPAIGN_SPEC]: (state, action) => {
     return { ...state, create: {} };
+  },
+  [DELETE_CAMPAIGN_SPEC]: (state, action) => {
+    return { ...state };
   },
 }, { list: [], selected: [], create: {}, view: {}, new: {} });

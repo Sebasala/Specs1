@@ -21,17 +21,21 @@ import {
   SET_NEW_SPEC_CONTENT_VIEW,
   CREATE_SPEC,
   CREATE_CAMPAIGN_SPEC,
+  DELETE_CAMPAIGN_SPEC,
 
   SET_SPEC_CAMPAIGN,
   SET_SPEC_MEDIUM,
   SET_SPEC_AD_FORMAT,
   SET_SPEC_CREATIVE,
   SET_SPEC_CONTENT,
-  SET_SPEC_CONTENT_FORMAT } from '../constants/actions';
+  SET_SPEC_CONTENT_FORMAT
+} from '../constants/actions';
 import {
   apiGetSpecsByCampaign,
   apiPostSpec,
-  apiPostCampaignSpec } from '../api/index';
+  apiPostCampaignSpec,
+  apiDeleteSpec
+} from '../api/index';
 import { specsUrl, creativesUrl, contentsUrl } from '../api/urls';
 
 export const fetchSpecs = createAction(FETCH_SPECS, (user, campaign) => apiGetSpecsByCampaign(specsUrl, user, campaign)());
@@ -56,6 +60,7 @@ export const setNewSpecContent = createAction(SET_NEW_SPEC_CONTENT);
 export const setNewSpecContentView = createAction(SET_NEW_SPEC_CONTENT_VIEW);
 export const createSpec = createAction(CREATE_SPEC, (user, spec) => apiPostSpec(creativesUrl, contentsUrl, user, spec)());
 export const createCampaignSpec = createAction(CREATE_CAMPAIGN_SPEC, (user, spec) => apiPostCampaignSpec(specsUrl, user, spec)());
+export const deleteCampaignSpec = createAction(DELETE_CAMPAIGN_SPEC, (user, specId) => apiDeleteSpec(specsUrl, user, specId)());
 
 export const setSpecCampaign = createAction(SET_SPEC_CAMPAIGN);
 export const setSpecMedium = createAction(SET_SPEC_MEDIUM);

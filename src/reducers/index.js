@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxForm } from 'redux-form';
-import { sessionReducer as session } from 'redux-react-session';
 import { accounts } from './accounts';
 import { user } from './user';
 import { specs } from './specs'
@@ -25,6 +24,5 @@ export default combineReducers({
   creatives,
   contents,
   contentTypes,
-  contentFormats,
-  session
+  contentFormats
 });

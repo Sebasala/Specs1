@@ -5,3 +5,7 @@ pm2 start manage.py --name "django-api" --interpreter ../../../api-django-venv/b
 https://tylermcginnis.com/react-router-protected-routes-authentication/
 https://stackoverflow.com/questions/47476186/when-user-is-not-logged-in-redirect-to-login-reactjs
 https://medium.com/@zoltankohalmy/react-redux-router-authentication-e8a77107db46
+
+https://jasonwatmore.com/post/2017/12/07/react-redux-jwt-authentication-tutorial-example
+https://medium.com/@rossbulat/using-cookies-in-react-redux-and-react-router-4-f5f6079905dc
+https://www.youtube.com/watch?v=Xa7ECigMWRs

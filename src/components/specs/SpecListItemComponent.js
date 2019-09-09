@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
 import { formatDate } from '../../helpers/env';
 
-const SpecListItemComponent = ({ id, date, campaignName, medium, adFormat, campaignId, urlPath, onAddSpec, onRemoveSpec, selected, onViewSpec }) => {
+const SpecListItemComponent = ({ id, date, campaignName, medium, adFormat, campaignId, urlPath, onAddSpec, onRemoveSpec, selected, onViewSpec, onDeleteCampaignSpec }) => {
   return (
     <tr>
       <td className='left checkbox'><FontAwesomeIcon icon={[selected ? 'far' : 'fas', 'check-circle']} onClick={selected ? () => onRemoveSpec(id) : () => onAddSpec(id)} /></td>
@@ -19,6 +19,11 @@ const SpecListItemComponent = ({ id, date, campaignName, medium, adFormat, campa
         </Link>
       </td>
       {/*<td className='ver-mas'><Link to={`/campaign/${campaignId}/${urlPath}/${id}`}><FontAwesomeIcon icon='plus-square' /></Link></td>*/}
+      <td className='ver-mas'>
+        <Link to='#' onClick={() => onDeleteCampaignSpec(id)}>
+          <FontAwesomeIcon icon='trash' />
+        </Link>
+      </td>
     </tr>
   );
 };
