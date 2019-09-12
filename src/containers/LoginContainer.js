@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import LoginComponent from '../components/LoginComponent';
-import { validateUser } from '../actions/index';
+import { validateUser, setLoaderVisibility } from '../actions/index';
 import { SubmissionError } from 'redux-form';
 import { getUser } from '../selectors/user';
 //TODO: GTM
@@ -13,14 +13,19 @@ class LoginContainer extends Component {
 
   componentDidMount() {
     if (this.props.user && Object.keys(this.props.user).length > 0) {
-      //this.props.history.push('/accounts');
+      this.props.history.push('/accounts');
     }
   }
 
   handleSubmit = values => {
-    return this.props.validateUser(values).catch(e => {
-      throw new SubmissionError(e);
-    });
+    const { validateUser, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
+    return validateUser(values)
+      .then(() => setLoaderVisibility(false))
+      .catch(e => {
+        setLoaderVisibility(false);
+        throw new SubmissionError(e);
+      });
   }
 
   handleSubmitSuccess = () => {
@@ -56,6 +61,6 @@ const mapStateToProps = state => ({
   user: getUser(state)
 });
 
-const mapDispatchToProps = { validateUser };
+const mapDispatchToProps = { validateUser, setLoaderVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginContainer));

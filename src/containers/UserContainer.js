@@ -10,7 +10,8 @@ import {
   deleteUser,
   fetchAccounts,
   setSelectedUser,
-  setUserAccounts
+  setUserAccounts,
+  setLoaderVisibility
 } from '../actions/index';
 import { getUser } from './../selectors/user';
 import { getUsers, getSelectedUser, getUserAccounts } from './../selectors/users';
@@ -19,53 +20,64 @@ import UserListComponent from '../components/user/UserListComponent';
 import UserFormComponent from '../components/user/UserFormComponent';
 import { SubmissionError } from 'redux-form';
 import UserItemComponent from '../components/user/UserItemComponent';
-import M from 'materialize-css';
 
 class UserContainer extends Component {
 
   componentDidMount() {
-    const { fetchUsers, fetchAccounts, user } = this.props;
-    fetchUsers(user);
-    fetchAccounts(user);
+    const { fetchUsers, user, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
+    fetchUsers(user).then(() => setLoaderVisibility(false));
+  }
+
+  handleLoadAccounts = () => {
+    const { fetchAccounts, setLoaderVisibility, user } = this.props;
+    setLoaderVisibility(true);
+    fetchAccounts(user).then(() => setLoaderVisibility(false));
   }
 
   handleNewUserSubmitSuccess = () => {
-    const { fetchUsers, user } = this.props;
-    fetchUsers(user);
-    this.props.history.goBack();
+    const { fetchUsers, user, history, setLoaderVisibility } = this.props;
+    fetchUsers(user).then(() => setLoaderVisibility(false));
+    history.goBack();
   }
 
   handleNewUserSubmit = values => {
-    const { createUser, userAccounts } = this.props;
-    return createUser(this.props.user, { ...values, accounts: userAccounts }).catch(e => {
-      throw new SubmissionError(e);
-    });
+    const { createUser, userAccounts, setLoaderVisibility, user } = this.props;
+    setLoaderVisibility(true);
+    return createUser(user, { ...values, accounts: userAccounts })
+      .catch(e => {
+        setLoaderVisibility(false);
+        throw new SubmissionError(e);
+      });
   }
 
   handleEditUserSubmitSuccess = () => {
-    const { fetchUsers, user } = this.props;
-    fetchUsers(user);
-    this.props.history.goBack();
+    const { fetchUsers, user, history, setLoaderVisibility } = this.props;
+    fetchUsers(user).then(() => setLoaderVisibility(false));
+    history.goBack();
   }
 
   handleEditUserSubmit = values => {
-    const { updateUser, userAccounts } = this.props;
-    return updateUser(this.props.user, {
+    const { updateUser, userAccounts, user, selectedUser, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
+    return updateUser(user, {
       ...values,
-      id: this.props.selectedUser.id,
+      id: selectedUser.id,
       accounts: userAccounts
     })
       .catch(e => {
+        setLoaderVisibility(false);
         throw new SubmissionError(e);
       });
   }
 
   handleDeleteUser = id => {
-    const { fetchUsers, user, deleteUser } = this.props;
+    const { fetchUsers, user, deleteUser, history, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
     deleteUser(user, id).then(() => {
-      fetchUsers(user);
+      fetchUsers(user).then(() => setLoaderVisibility(false));
     });
-    this.props.history.goBack();
+    history.goBack();
   }
 
   handleBack = () => {
@@ -87,12 +99,11 @@ class UserContainer extends Component {
 
   render() {
     const { users, selectedUser, accounts, userAccounts } = this.props;
-
     return (
       <div className="user-container">
         <Switch>
           <Route path={'/users'} render={() => <UserListComponent
-            users={users} onEditDeleteClick={this.handleEditDeleteClick} />}
+            users={users} onEditDeleteClick={this.handleEditDeleteClick} onLoadAccounts={this.handleLoadAccounts} />}
           />
           <Route path={'/user/delete/:userId'} render={() => <UserItemComponent
             confirmation={true}
@@ -141,6 +152,6 @@ const mapStateToProps = (state, props) => ({
   userAccounts: getUserAccounts(state)
 });
 
-const mapDispatchToProps = { fetchUsers, createUser, updateUser, deleteUser, fetchAccounts, setSelectedUser, setUserAccounts };
+const mapDispatchToProps = { fetchUsers, createUser, updateUser, deleteUser, fetchAccounts, setSelectedUser, setUserAccounts, setLoaderVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserContainer));

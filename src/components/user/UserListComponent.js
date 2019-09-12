@@ -4,24 +4,24 @@ import UserItemComponent from './UserItemComponent';
 import { Link } from 'react-router-dom';
 // import '../css/style.css';
 
-const UserListComponent = ({ users, onEditDeleteClick, onBack }) => {
+const UserListComponent = ({ users, onEditDeleteClick, onBack, onLoadAccounts }) => {
   return (
     <div className="user-list-component">
       <div className='container--users-list'>
         <header className="light-bg">
           <img className='logo' src='images/logospecs.png' alt='Specs' />
           <h1>USUARIOS</h1>
-          <Link to={`/user/new`} className='button button--crear'>
-          CREAR
+          <Link to={`/user/new`} className='button button--crear' onClick={() => onLoadAccounts()}>
+            CREAR
           </Link>
         </header>
         <ul className='items'>
           {users.map(user =>
             <li className='item light-bg' key={user.id}>
               <UserItemComponent
-              id={user.id} name={`${user.firstName} ${user.lastName}`}
-              email={user.email} permissionLevel={user.permissionLevel}
-              onEditDeleteClick={onEditDeleteClick} onBack={onBack} />
+                id={user.id} name={`${user.firstName} ${user.lastName}`}
+                email={user.email} permissionLevel={user.permissionLevel}
+                onEditDeleteClick={onEditDeleteClick} onBack={onBack} onLoadAccounts={onLoadAccounts} />
             </li>
           )}
         </ul>

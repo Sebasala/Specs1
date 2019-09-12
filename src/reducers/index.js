@@ -11,6 +11,7 @@ import { contentTypes } from './contentTypes';
 import { contentFormats } from './contentFormats';
 import { contents } from './contents';
 import { users } from './users';
+import { ui } from './ui';
 
 export default combineReducers({
   form: reduxForm,
@@ -24,5 +25,6 @@ export default combineReducers({
   creatives,
   contents,
   contentTypes,
-  contentFormats
+  contentFormats,
+  ui
 });

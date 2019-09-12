@@ -9,7 +9,8 @@ import {
   fetchSpecs,
   removeSpec,
   deselectSpec,
-  selectUserAccount
+  selectUserAccount,
+  setLoaderVisibility
 } from '../actions/index';
 import { getCampaigns } from '../selectors/campaigns';
 import { getSelectedSpecs, getSpecs } from '../selectors/specs';
@@ -20,21 +21,24 @@ import { getUser } from '../selectors/user';
 class CampaignsContainer extends Component {
 
   componentDidMount() {
-    const { selectUserAccount, fetchAccountCampaigns, accountId, user } = this.props;
+    const { selectUserAccount, fetchAccountCampaigns, accountId, user, setLoaderVisibility } = this.props;
     selectUserAccount(accountId);
-    fetchAccountCampaigns(user, accountId);
+    setLoaderVisibility(true);
+    fetchAccountCampaigns(user, accountId).then(() => setLoaderVisibility(false));
   }
 
   handleExport = () => {
-    const { selectedSpecs } = this.props;
-    exportSpecs(selectedSpecs);
+    const { selectedSpecs, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
+    exportSpecs(selectedSpecs).then(() => setLoaderVisibility(false));
   }
 
   handleExportCampaign = campaignId => {
-    const { user, fetchSpecs } = this.props;
+    const { user, fetchSpecs, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
     fetchSpecs(user, campaignId)
       .then(res => {
-        exportSpecs(res.payload);
+        exportSpecs(res.payload).then(() => setLoaderVisibility(false));
       });
   }
 
@@ -76,6 +80,6 @@ const mapStateToProps = (state, props) => ({
   specs: getSpecs(state),
 });
 
-const mapDispatchToProps = { fetchAccountCampaigns, fetchSpecs, removeSpec, deselectSpec, selectUserAccount };
+const mapDispatchToProps = { fetchAccountCampaigns, fetchSpecs, removeSpec, deselectSpec, selectUserAccount, setLoaderVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CampaignsContainer));

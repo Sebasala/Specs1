@@ -2,13 +2,13 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack, confirmation }) => {
-  let confirmationClass = "";
+const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditDeleteClick, onBack, confirmation, onLoadAccounts }) => {
+  let confirmationClass = '';
 
   if (confirmation) {
-    confirmationClass = "confirmation light-bg";
+    confirmationClass = 'confirmation light-bg';
   }
-  
+
   return (
     <div className={confirmationClass} >
       {(onDelete) ? (<section><h1>Confirmación</h1><p>¿Está seguro que desea eliminar este usuario?</p></section>) : ""}
@@ -27,8 +27,11 @@ const UserItemComponent = ({ id, name, email, permissionLevel, onDelete, onEditD
           </Link>
         </div>) :
         (
-        <div className="container--buttons">
-          <Link to={`/user/${id}`} onClick={() => onEditDeleteClick(id)} className='button'>
+        <div className='container--buttons'>
+          <Link to={`/user/${id}`} onClick={() => {
+              onLoadAccounts();
+              onEditDeleteClick(id);
+            }} className='button'>
             EDITAR
           </Link>
           <Link to={`/user/delete/${id}`} onClick={() => onEditDeleteClick(id)} className='button'>

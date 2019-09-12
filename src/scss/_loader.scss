@@ -1,0 +1,15 @@
+/* TYPE */
+/* Fonts */
+@import url($fonts-url);
+
+div.loader {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.07);
+		z-index: 12;
+		position: absolute;
+		align-items: center;
+		//display: block;
+    margin: 0 auto;
+	}

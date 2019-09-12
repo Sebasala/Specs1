@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import AccountsComponent from '../components/AccountsComponent';
 import { getUserAccounts } from './../selectors/accounts';
-import { fetchUserAccounts } from './../actions/index';
+import { fetchUserAccounts, setLoaderVisibility } from './../actions/index';
 import { getUser } from '../selectors/user';
 
 //TODO: Refactorizar a UserAccountsContainer
 class AccountsContainer extends Component {
 
   componentDidMount() {
-    const { fetchUserAccounts, user } = this.props;
-    fetchUserAccounts(user);
+    const { fetchUserAccounts, setLoaderVisibility, user } = this.props;
+    setLoaderVisibility(true);
+    fetchUserAccounts(user).then(() => setLoaderVisibility(false));
   }
 
   render() {
@@ -35,9 +36,9 @@ AccountsContainer.defaultProps = {
 
 const mapStateToProps = state => ({
   accounts: getUserAccounts(state),
-  user: getUser(state),
+  user: getUser(state)
 });
 
-const mapDispatchToProps = { fetchUserAccounts };
+const mapDispatchToProps = { fetchUserAccounts, setLoaderVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AccountsContainer));

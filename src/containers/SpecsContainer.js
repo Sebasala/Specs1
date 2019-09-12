@@ -11,7 +11,8 @@ import {
   deselectSpec,
   setSpecsSelected,
   viewSpec,
-  deleteCampaignSpec
+  deleteCampaignSpec,
+  setLoaderVisibility
 } from './../actions/index';
 import { getCampaignById, getCampaigns } from '../selectors/campaigns';
 import { getSpecs, getSelectedSpecs, getViewedSpec } from '../selectors/specs';
@@ -24,9 +25,13 @@ import TagManager from 'react-gtm-module';
 class SpecsContainer extends Component {
 
   componentDidMount() {
-    const { fetchSpecs, viewSpec, setSpecsSelected, campaignId, campaign, user } = this.props;
+    const { fetchSpecs, viewSpec, setSpecsSelected, campaignId, campaign, user, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
     viewSpec(-1);
-    fetchSpecs(user, campaignId).then(() => setSpecsSelected());
+    fetchSpecs(user, campaignId).then(() => {
+      setLoaderVisibility(false);
+      setSpecsSelected();
+    });
     const { account, ...gtmCampaign } = campaign;
     TagManager.dataLayer({
       dataLayer: {
@@ -37,8 +42,9 @@ class SpecsContainer extends Component {
   }
 
   handleExport = () => {
-    const { selectedSpecs } = this.props;
-    exportSpecs(selectedSpecs);
+    const { selectedSpecs, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
+    exportSpecs(selectedSpecs).then(() => setLoaderVisibility(false));
   }
 
   handleAddSpec = id => {
@@ -59,19 +65,20 @@ class SpecsContainer extends Component {
   }
 
   handleExportCampaign = campaignId => {
-    const { user, fetchSpecs } = this.props;
+    const { user, fetchSpecs, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
     fetchSpecs(user, campaignId)
       .then(res => {
-        exportSpecs(res.payload);
+        exportSpecs(res.payload).then(() => setLoaderVisibility(false));
       });
   }
 
   handleDeleteCampaignSpec = specId => {
-    console.log('Eliminar spec')
-    const { user, fetchSpecs, deleteCampaignSpec, campaignId } = this.props;
+    const { user, fetchSpecs, deleteCampaignSpec, campaignId, setLoaderVisibility } = this.props;
+    setLoaderVisibility(true);
     deleteCampaignSpec(user, specId)
       .then(() => {
-        fetchSpecs(user, campaignId);
+        fetchSpecs(user, campaignId).then(() => setLoaderVisibility(false));
       })
   }
 
@@ -109,6 +116,6 @@ const mapStateToProps = (state, props) => ({
   viewedSpec: getViewedSpec(state),
 });
 
-const mapDispatchToProps = { fetchSpecs, addSpec, removeSpec, selectSpec, deselectSpec, setSpecsSelected, viewSpec, deleteCampaignSpec };
+const mapDispatchToProps = { fetchSpecs, addSpec, removeSpec, selectSpec, deselectSpec, setSpecsSelected, viewSpec, deleteCampaignSpec, setLoaderVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SpecsContainer));
