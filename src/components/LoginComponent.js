@@ -26,8 +26,8 @@ class LoginComponent extends Component {
           <img className='logo' src='images/logospecs.png' alt='Specs' />
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
-            <Field name='username' component={RenderInputComponent} type='text' placeholder='Username' withFocus required></Field>
-            <Field name='password' component={RenderInputComponent} type='password' placeholder='Password' required></Field>
+            <Field name='username' component={RenderInputComponent} type='text' placeholder='Correo electrónico' withFocus required></Field>
+            <Field name='password' component={RenderInputComponent} type='password' placeholder='Contraseña' required></Field>
             <input type='submit' value='ENTRAR' />
           </form>
         </div>

@@ -33,6 +33,8 @@ export const apiGetUserByCredentials = (url, user) => () => {
               username: data.errors[0]
             });
           }
+          const { accessToken: token } = data;
+          localStorage.setItem('jwtToken', token);
           return data;
         })
     );
