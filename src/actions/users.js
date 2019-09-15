@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import {
   VALIDATE_USER,
+  LOGOUT_USER,
   FETCH_USER_ACCOUNTS,
   FETCH_USERS,
   CREATE_USER,
@@ -11,7 +12,8 @@ import {
   CLEAR_USER_ACCOUNTS
 } from '../constants/actions';
 import {
-  apiGetUserByCredentials,
+  apiLoginUser,
+  apiLogoutUser,
   apiGetUserAccounts,
   apiGetUsers,
   apiPostUser,
@@ -20,7 +22,8 @@ import {
 } from './../api/index';
 import { authUrl, usersUrl } from '../api/urls';
 
-export const validateUser = createAction(VALIDATE_USER, user => apiGetUserByCredentials(authUrl, user)());
+export const validateUser = createAction(VALIDATE_USER, user => apiLoginUser(authUrl, user)());
+export const logoutUser = createAction(LOGOUT_USER, () => apiLogoutUser()());
 export const fetchUserAccounts = createAction(FETCH_USER_ACCOUNTS, user => apiGetUserAccounts(usersUrl, user)());
 
 export const fetchUsers = createAction(FETCH_USERS, user => apiGetUsers(usersUrl, user)());

@@ -19,6 +19,7 @@ import { Loader } from './Loader';
 
 class Routes extends Component {
 
+  //TODO: Implementar autologout https://stackoverflow.com/questions/40888776/how-to-auto-log-off-when-a-user-is-inactive-in-reactjs
   render() {
     const { user, loaderVisibility } = this.props;
     return (<Router>

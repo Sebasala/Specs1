@@ -12,8 +12,9 @@ import TagManager from 'react-gtm-module';
 class LoginContainer extends Component {
 
   componentDidMount() {
-    if (this.props.user && Object.keys(this.props.user).length > 0) {
-      this.props.history.push('/accounts');
+    const { user, history } = this.props;
+    if (user && Object.keys(user).length > 0 && localStorage.getItem('jwtToken')) {
+      history.push('/accounts');
     }
   }
 

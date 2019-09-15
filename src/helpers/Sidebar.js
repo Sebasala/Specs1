@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../actions/index';
+import { getUser } from '../selectors/user';
 
 class Sidebar extends Component {
 
@@ -25,13 +27,20 @@ class Sidebar extends Component {
     })
   }
 
+  handleLogoutUser = () => {
+    const { logoutUser } = this.props;
+    logoutUser();
+    this.toggleMenu();
+  }
+
   render() {
-    let navClass = "nav--closed";
+    const { user } = this.props;
+    let navClass = 'nav--closed';
 
     if (this.state.open === true) {
-      navClass = "nav--open";
+      navClass = 'nav--open';
     } else {
-      navClass = "nav--closed";
+      navClass = 'nav--closed';
     }
 
     return (
@@ -43,9 +52,15 @@ class Sidebar extends Component {
           <h2>Administrar</h2>
           <ul>
             <li>
-              <Link onClick={this.toggleMenu} to='/login'>
-                Login
-              </Link>
+              {
+                (user && Object.values(user).length > 0)
+                  ? (<Link onClick={this.handleLogoutUser} to='#'>
+                      Logout
+                    </Link>)
+                  : (<Link onClick={this.toggleMenu} to='/login'>
+                      Login
+                    </Link>)
+              }
             </li>
             <li>
               <Link onClick={this.toggleMenu} to='/users'>
@@ -80,8 +95,9 @@ class Sidebar extends Component {
 }
 
 const mapStateToProps = state => ({
+  user: getUser(state),
 });
 
-const mapDispatchToProps = {  };
+const mapDispatchToProps = { logoutUser };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
