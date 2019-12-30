@@ -9,3 +9,9 @@ https://medium.com/@zoltankohalmy/react-redux-router-authentication-e8a77107db46
 https://jasonwatmore.com/post/2017/12/07/react-redux-jwt-authentication-tutorial-example
 https://medium.com/@rossbulat/using-cookies-in-react-redux-and-react-router-4-f5f6079905dc
 https://www.youtube.com/watch?v=Xa7ECigMWRs
+
+https://grokonez.com/node-js/nodejs-restapis-how-to-create-nodejs-express-restapis-post-get-put-delete-requests
+https://www.youtube.com/playlist?list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+https://github.com/sweetalert2/sweetalert2-react-content
+https://sweetalert2.github.io/#native_link#
+https://www.appfoundry.be/blog/2018/11/24/session-management-in-react-single-page-applications/
