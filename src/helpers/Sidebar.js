@@ -2,42 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { logoutUser } from '../actions/index';
+import {
+  logoutUser,
+  toggleMenuVisibility
+} from '../actions/index';
 import { getUser } from '../selectors/user';
+import { getMenuVisibility } from '../selectors/ui';
 
 class Sidebar extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      open: false
-    }
-
-    this.toggleMenu = this.toggleMenu.bind(this);
-  }
-
-  componentDidMount() {
-
-  }
-
-  toggleMenu() {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
   handleLogoutUser = () => {
-    const { logoutUser } = this.props;
+    const { logoutUser, toggleMenuVisibility } = this.props;
     logoutUser();
-    this.toggleMenu();
+    toggleMenuVisibility();
   }
 
   render() {
-    const { user } = this.props;
+    const { user, menuVisibility, toggleMenuVisibility } = this.props;
     let navClass = 'nav--closed';
 
-    if (this.state.open === true) {
+    if (menuVisibility) {
       navClass = 'nav--open';
     } else {
       navClass = 'nav--closed';
@@ -45,7 +29,7 @@ class Sidebar extends Component {
 
     return (
       <nav className={navClass} >
-        <button onClick={this.toggleMenu} >
+        <button onClick={toggleMenuVisibility} >
           <i className='material-icons'>menu</i>
         </button>
         <section>
@@ -57,23 +41,23 @@ class Sidebar extends Component {
                   ? (<Link onClick={this.handleLogoutUser} to='#'>
                       Logout
                     </Link>)
-                  : (<Link onClick={this.toggleMenu} to='/login'>
+                  : (<Link onClick={toggleMenuVisibility} to='/login'>
                       Login
                     </Link>)
               }
             </li>
             <li>
-              <Link onClick={this.toggleMenu} to='/users'>
+              <Link onClick={toggleMenuVisibility} to='/users'>
                 Usuarios
               </Link>
             </li>
             <li>
-              <Link onClick={this.toggleMenu} to='/accounts2'>
+              <Link onClick={toggleMenuVisibility} to='/accounts2'>
                 Cuentas
               </Link>
             </li>
             <li>
-              <Link onClick={this.toggleMenu} to='/new/spec/creative'>
+              <Link onClick={toggleMenuVisibility} to='/new/spec/creative'>
                 Crear Spec
               </Link>
             </li>
@@ -83,7 +67,7 @@ class Sidebar extends Component {
           <h2>Ver</h2>
           <ul>
             <li>
-              <Link onClick={this.toggleMenu} to='/accounts'>
+              <Link onClick={toggleMenuVisibility} to='/accounts'>
                 Cuentas
               </Link>
             </li>
@@ -96,8 +80,9 @@ class Sidebar extends Component {
 
 const mapStateToProps = state => ({
   user: getUser(state),
+  menuVisibility: getMenuVisibility(state),
 });
 
-const mapDispatchToProps = { logoutUser };
+const mapDispatchToProps = { logoutUser, toggleMenuVisibility };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
