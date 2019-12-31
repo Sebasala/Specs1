@@ -15,3 +15,5 @@ https://www.youtube.com/playlist?list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
 https://github.com/sweetalert2/sweetalert2-react-content
 https://sweetalert2.github.io/#native_link#
 https://www.appfoundry.be/blog/2018/11/24/session-management-in-react-single-page-applications/
+
+https://jeremybouny.fr/en/articles/server_side_canvas_node/
