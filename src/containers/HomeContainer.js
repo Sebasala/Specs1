@@ -7,7 +7,6 @@ class HomeContainer extends Component {
   componentDidMount() {
     //const { history } = this.props;
     //history.push('/login');
-    
   }
 
   handleImageChange = event => {
@@ -15,21 +14,35 @@ class HomeContainer extends Component {
     let fileReader = new FileReader();
     fileReader.onloadend = (event) => {
       const content = fileReader.result;
-      createGIF({
-        video: [
-          content
-        ],
-        interval: 1.5,
-        numFrames: 10,
-        frameDuration: 3,
-        sampleInterval: 10,
-      }, (obj) => {
-        if (!obj.error) {
-          var image = obj.image,
-            animatedImage = document.getElementById('animatedGIF');
-          animatedImage.src = image;
-        }
-      });
+      
+      let videoHeight = 0;
+      let videoWidth = 0;
+      let videoLength = 0;
+      let video = document.createElement('video');
+      video.preload = 'metadata';
+      video.onloadedmetadata = () => {
+        videoHeight = video.videoHeight;
+        videoWidth = video.videoWidth;
+        videoLength = parseInt(video.duration) + 1;
+        createGIF({
+          video: [
+            content
+          ],
+          gifWidth: 508,
+          gifHeight: 270,
+          interval: 0.5,
+          numFrames: 84,//videoLength * 2,
+          frameDuration: 5,
+          sampleInterval: 5,
+        }, (obj) => {
+          if (!obj.error) {
+            var image = obj.image,
+              animatedImage = document.getElementById('animatedGIF');
+            animatedImage.src = image;
+          }
+        });
+      }
+      video.src = content;
     };
     fileReader.readAsDataURL(file);
   }
