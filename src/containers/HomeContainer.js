@@ -24,16 +24,17 @@ class HomeContainer extends Component {
         videoHeight = video.videoHeight;
         videoWidth = video.videoWidth;
         videoLength = parseInt(video.duration) + 1;
+        console.log(videoLength / 80)
         createGIF({
           video: [
             content
           ],
           gifWidth: 508,
           gifHeight: 270,
-          interval: 0.5,
-          numFrames: 84,//videoLength * 2,
+          interval: videoLength / 80,
+          numFrames: 80,//videoLength * 2,
           frameDuration: 5,
-          sampleInterval: 5,
+          sampleInterval: 10
         }, (obj) => {
           if (!obj.error) {
             var image = obj.image,

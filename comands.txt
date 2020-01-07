@@ -17,3 +17,5 @@ https://sweetalert2.github.io/#native_link#
 https://www.appfoundry.be/blog/2018/11/24/session-management-in-react-single-page-applications/
 
 https://jeremybouny.fr/en/articles/server_side_canvas_node/
+
+https://dev.to/finallynero/using-websockets-in-react-4fkp
