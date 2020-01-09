@@ -14,6 +14,14 @@ export const compareStringDate = (obj1, obj2) => {
   return 0;
 };
 
+export const reziseDimensions = (height, width, max) => {
+  const conversionFactor = max / width;
+  return {
+    height: height * conversionFactor,
+    width: width * conversionFactor
+  };
+};
+
 export const loadState = () => {
   try {
     const stateTimestamp = localStorage.getItem('stateTimestamp') ? Number(localStorage.getItem('stateTimestamp')) : 0;

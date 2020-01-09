@@ -11,5 +11,11 @@ div.loader {
 		position: absolute;
 		align-items: center;
 		//display: block;
-    margin: 0 auto;
+		margin: 0 auto;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+div.loader>span {
+		margin-top: 15px;
 	}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { RingLoader } from 'react-spinners';
+import { BounceLoader } from 'react-spinners';
 
-export const Loader = ({ loaderVisibility }) => {
+export const Loader = ({ loaderVisibility, loaderProgress }) => {
 
   const override = css`
     display: block;
@@ -10,14 +10,15 @@ export const Loader = ({ loaderVisibility }) => {
     border-color: red;
   `;
   return (
-    <div className={loaderVisibility ? 'loader' : ''}>
-      <RingLoader
+    <div className={ loaderVisibility ? 'loader' : '' }>
+      <BounceLoader
         css={override}
         sizeUnit={"px"}
-        size={150}
+        size={60}
         color={'#1D424E'}
         loading={loaderVisibility}
       />
+      {loaderVisibility ? <span>Cargando ... {loaderProgress ? `${loaderProgress} %` : ''}</span> : '' }
     </div>
   )
 };

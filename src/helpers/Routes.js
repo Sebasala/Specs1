@@ -12,23 +12,31 @@ import UserContainer from './../containers/UserContainer';
 import AccountContainer from './../containers/AccountContainer';
 import NewSpecContainer from '../containers/NewSpecContainer';
 import NotFoundContainer from '../containers/NotFoundContainer';
+import GifGeneratorContainer from './../containers/GifGeneratorContainer';
 import { getUser } from '../selectors/user';
-import { getLoaderVisibility } from '../selectors/ui';
+import { getLoaderVisibility, getLoaderProgress } from '../selectors/ui';
 import Sidebar from './Sidebar';
 import { Loader } from './Loader';
+import { setLoaderVisibility, setLoaderProgress } from '../actions';
 
 class Routes extends Component {
 
+  componentWillMount () {
+    const { setLoaderVisibility, setLoaderProgress } = this.props;
+    setLoaderVisibility(false);
+    setLoaderProgress(undefined);
+  }
   //TODO: Implementar autologout https://stackoverflow.com/questions/40888776/how-to-auto-log-off-when-a-user-is-inactive-in-reactjs
   render() {
-    const { user, loaderVisibility } = this.props;
+    const { user, loaderVisibility, loaderProgress } = this.props;
     return (<Router>
       <div>
         <Sidebar></Sidebar>
-        <Loader loaderVisibility={loaderVisibility}></Loader>
+        <Loader loaderVisibility={loaderVisibility} loaderProgress={loaderProgress}></Loader>
         <Switch>
           <Route exact path='/login' component={LoginContainer} />
           <Route exact path='/' component={HomeContainer} />
+          <Route exact path='/gif' component={GifGeneratorContainer} />
 
           <PrivateRoute path='/users' component={UserContainer} user={user} />
           <PrivateRoute path='/user/delete/:userId' render={props => {
@@ -62,8 +70,9 @@ class Routes extends Component {
 const mapStateToProps = (state, props) => ({
   user: getUser(state),
   loaderVisibility: getLoaderVisibility(state),
+  loaderProgress: getLoaderProgress(state)
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { setLoaderVisibility, setLoaderProgress };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);

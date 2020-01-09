@@ -19,3 +19,8 @@ https://www.appfoundry.be/blog/2018/11/24/session-management-in-react-single-pag
 https://jeremybouny.fr/en/articles/server_side_canvas_node/
 
 https://dev.to/finallynero/using-websockets-in-react-4fkp
+
+https://github.com/gumlet/gif-resize
+https://github.com/lovell/sharp
+https://www.npmjs.com/package/jimp
+https://github.com/imagemin/imagemin
