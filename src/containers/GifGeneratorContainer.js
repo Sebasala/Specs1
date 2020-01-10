@@ -15,7 +15,6 @@ import { setLoaderVisibility, setLoaderProgress } from '../actions';
 class GifGeneratorContainer extends Component {
 
   componentDidMount() {
-    
   }
 
   handleImageChange = event => {
@@ -27,9 +26,15 @@ class GifGeneratorContainer extends Component {
       const content = fileReader.result;
       let video = document.createElement('video');
       video.preload = 'metadata';
+      video.style.display = "none";
       video.onloadedmetadata = () => {
         let { height: videoHeight, width: videoWidth } = reziseDimensions(video.videoHeight, video.videoWidth, GIF_MAX_HEIGHT);
         let videoLength = parseInt(video.duration) + 1;
+        
+        /*setTimeout(() => {
+          document.body.removeChild(video);
+        }, 1000);*/
+        console.log(videoHeight, videoWidth, videoLength);
         createGIF({
           video: [
             content
@@ -58,8 +63,21 @@ class GifGeneratorContainer extends Component {
         });
       }
       video.src = content;
+      document.body.appendChild(video);
     };
     fileReader.readAsDataURL(file);
+  }
+
+  handleGifDownload = event => {
+    const animatedImage = document.getElementById('animatedGIF');
+    const a = document.createElement('a');
+    a.href = animatedImage.src;
+    a.download = `gif.gif`;
+    document.body.appendChild(a);
+    a.click();
+    /*setTimeout(() => {
+      document.body.removeChild(a);
+    }, 1000);*/
   }
 
   render() {
@@ -68,7 +86,7 @@ class GifGeneratorContainer extends Component {
         <h1>Home Specs</h1>
         <div id='preview'>
           <img id='animatedGIF' alt='gif'/>
-          <a id='gifLink' download='gif.gif'>Descargar</a>
+          <button id='gifLink' onClick={this.handleGifDownload}>Descargar</button>
           <input type='file' name='image' onChange={this.handleImageChange} />
         </div>
       </div>
