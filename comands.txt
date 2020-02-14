@@ -24,3 +24,5 @@ https://github.com/gumlet/gif-resize
 https://github.com/lovell/sharp
 https://www.npmjs.com/package/jimp
 https://github.com/imagemin/imagemin
+https://www.npmjs.com/package/compress-images
+https://www.npmjs.com/package/gifwrap

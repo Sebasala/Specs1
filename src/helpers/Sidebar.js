@@ -47,6 +47,11 @@ class Sidebar extends Component {
               }
             </li>
             <li>
+              <Link onClick={toggleMenuVisibility} to='/gif'>
+                Gif
+              </Link>
+            </li>
+            <li>
               <Link onClick={toggleMenuVisibility} to='/users'>
                 Usuarios
               </Link>

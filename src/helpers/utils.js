@@ -14,8 +14,8 @@ export const compareStringDate = (obj1, obj2) => {
   return 0;
 };
 
-export const reziseDimensions = (height, width, max) => {
-  const conversionFactor = max / width;
+export const reziseDimensions = (width, height, max) => {
+  let conversionFactor = height > width ? max / height : max / width;
   return {
     height: height * conversionFactor,
     width: width * conversionFactor

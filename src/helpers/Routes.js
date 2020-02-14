@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import HomeContainer from '../containers/HomeContainer';
 import AccountsContainer from '../containers/AccountsContainer';
@@ -13,6 +13,7 @@ import AccountContainer from './../containers/AccountContainer';
 import NewSpecContainer from '../containers/NewSpecContainer';
 import NotFoundContainer from '../containers/NotFoundContainer';
 import GifGeneratorContainer from './../containers/GifGeneratorContainer';
+import DealsContainer from './../containers/DealsContainer';
 import { getUser } from '../selectors/user';
 import { getLoaderVisibility, getLoaderProgress } from '../selectors/ui';
 import Sidebar from './Sidebar';
@@ -36,7 +37,10 @@ class Routes extends Component {
         <Switch>
           <Route exact path='/login' component={LoginContainer} />
           <Route exact path='/' component={HomeContainer} />
-          <Route exact path='/gif' component={GifGeneratorContainer} />
+          {/*<Route path='/gif' component={GifGeneratorContainer} />*/}
+          <PrivateRoute path='/gif' component={GifGeneratorContainer} user={user} />
+
+          <Route exact path='/deals' component={DealsContainer} />
 
           <PrivateRoute path='/users' component={UserContainer} user={user} />
           <PrivateRoute path='/user/delete/:userId' render={props => {
@@ -75,4 +79,4 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = { setLoaderVisibility, setLoaderProgress };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Routes);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));

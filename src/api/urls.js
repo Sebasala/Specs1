@@ -13,3 +13,5 @@ export const contentsUrl = `${baseUrl}contents`;
 
 export const contentTypesUrl = `${baseUrl}contentTypes`;
 export const contentFormatsUrl = `${baseUrl}contentFormats`;
+
+export const gifsUrl = `${baseUrl}gifs`;

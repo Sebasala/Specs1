@@ -9,3 +9,4 @@ export * from './contentFormats';
 export * from './accounts';
 export * from './contents';
 export * from './ui';
+export * from './gif';

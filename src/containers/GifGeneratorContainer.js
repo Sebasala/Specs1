@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
 import { createGIF } from 'gifshot';
 import {
-  GIF_MAX_HEIGHT,
+  GIF_MAX_WIDTH,
   GIF_FRAMES,
   GIF_FRAME_DURATION,
   GIF_SAMPLE_INTERVAL
 } from '../constants/constants';
 import { reziseDimensions } from '../helpers/utils';
-import { setLoaderVisibility, setLoaderProgress } from '../actions';
+import { setLoaderVisibility, setLoaderProgress, setGifData } from '../actions';
+import { getGifData } from '../selectors/gif';
+import GifSidebarComponent from '../components/gif/GifSidebarComponent';
+import GifVideoComponent from '../components/gif/GifVideoComponent';
+import GifHomeComponent from '../components/gif/GifHomeComponent';
 
 class GifGeneratorContainer extends Component {
 
   componentDidMount() {
+    const { setGifData } = this.props;
+    setGifData(undefined);
   }
 
-  handleImageChange = event => {
-    const { setLoaderVisibility, setLoaderProgress } = this.props;
+  handleVideoChange = event => {
+    const { setLoaderVisibility, setLoaderProgress, setGifData } = this.props;
     setLoaderVisibility(true);
     const file = event.target.files[0];
     let fileReader = new FileReader();
@@ -28,21 +35,20 @@ class GifGeneratorContainer extends Component {
       video.preload = 'metadata';
       video.style.display = "none";
       video.onloadedmetadata = () => {
-        let { height: videoHeight, width: videoWidth } = reziseDimensions(video.videoHeight, video.videoWidth, GIF_MAX_HEIGHT);
+        let { width: videoWidth, height: videoHeight } = reziseDimensions(video.videoWidth, video.videoHeight, GIF_MAX_WIDTH);
         let videoLength = parseInt(video.duration) + 1;
-        
-        /*setTimeout(() => {
+
+        setTimeout(() => {
           document.body.removeChild(video);
-        }, 1000);*/
-        console.log(videoHeight, videoWidth, videoLength);
+        }, 1000);
         createGIF({
           video: [
             content
           ],
-          gifHeight: videoHeight,
           gifWidth: videoWidth,
-          interval: videoLength / GIF_FRAMES,
-          numFrames: GIF_FRAMES,
+          gifHeight: videoHeight,
+          interval: 1,
+          numFrames: videoLength,
           frameDuration: GIF_FRAME_DURATION,
           sampleInterval: GIF_SAMPLE_INTERVAL,
           progressCallback: (captureProgress) => {
@@ -53,11 +59,10 @@ class GifGeneratorContainer extends Component {
           },
         }, (obj) => {
           if (!obj.error) {
-            const image = obj.image;
-            let animatedImage = document.getElementById('animatedGIF');
-            animatedImage.src = image;
-            let gifLink = document.getElementById('gifLink');
-            gifLink.href = image;
+            const gif = obj.image;
+            let videoGif = document.querySelector('video');
+            document.body.removeChild(videoGif);
+            setGifData(gif);
             setLoaderVisibility(false);
           }
         });
@@ -75,20 +80,37 @@ class GifGeneratorContainer extends Component {
     a.download = `gif.gif`;
     document.body.appendChild(a);
     a.click();
-    /*setTimeout(() => {
+    setTimeout(() => {
       document.body.removeChild(a);
-    }, 1000);*/
+    }, 1000);
+  }
+
+  handleBack = () => {
+    this.props.history.goBack();
+  }
+
+  handleVideoClick = () => {
+    this.props.history.push('/gif/video');
+  }
+
+  handleImagesClick = () => {
+    this.props.history.push('/gif/images');
   }
 
   render() {
+    const { gifData } = this.props;
     return (
-      <div>
-        <h1>Home Specs</h1>
-        <div id='preview'>
-          <img id='animatedGIF' alt='gif'/>
-          <button id='gifLink' onClick={this.handleGifDownload}>Descargar</button>
-          <input type='file' name='image' onChange={this.handleImageChange} />
-        </div>
+      <div className='crear'>
+        {/*<GifGeneratorComponent gifData={gifData} onVideoChange={this.handleVideoChange}
+          onGifDownload={this.handleGifDownload} onBack={this.handleBack}
+          onVideoClick={this.handleVideoClick} onImagesClick={this.handleImagesClick}
+        />*/}
+        <Switch>
+          <Route exact path={'/gif/video'} render={() => <GifVideoComponent onVideoChange={this.handleVideoChange} onBack={this.handleBack} />} />
+          <Route exact path={'/gif'} render={() => <GifHomeComponent onBack={this.handleBack} onVideoClick={this.handleVideoClick} onImagesClick={this.handleImagesClick} />} />
+        </Switch>
+
+        <GifSidebarComponent gifData={gifData} onGifDownload={this.handleGifDownload} />
       </div>
     );
   }
@@ -98,8 +120,9 @@ GifGeneratorContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  gifData: getGifData(state)
 });
 
-const mapDispatchToProps = { setLoaderVisibility, setLoaderProgress };
+const mapDispatchToProps = { setLoaderVisibility, setLoaderProgress, setGifData };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GifGeneratorContainer));

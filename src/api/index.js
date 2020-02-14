@@ -2,6 +2,7 @@ export * from './accounts';
 export * from './users';
 export * from './specs';
 export * from './auth';
+export * from './gif';
 
 export const apiGetUserAccounts = (url, user) => () =>
   fetch(`${url}/${user.id}`, {

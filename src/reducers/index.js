@@ -12,6 +12,7 @@ import { contentFormats } from './contentFormats';
 import { contents } from './contents';
 import { users } from './users';
 import { ui } from './ui';
+import { gif } from './gif';
 
 export default combineReducers({
   form: reduxForm,
@@ -26,5 +27,6 @@ export default combineReducers({
   contents,
   contentTypes,
   contentFormats,
-  ui
+  ui,
+  gif,
 });
